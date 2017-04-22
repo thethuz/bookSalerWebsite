@@ -1,0 +1,142 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBookLabel">Create or edit a Book</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.book.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.book.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tenSach">Ten Sach</label>
+            <input type="text" class="form-control" name="tenSach" id="field_tenSach"
+                    ng-model="vm.book.tenSach"
+                    required ng-minlength="1" ng-maxlength="50" />
+            <div ng-show="editForm.tenSach.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tenSach.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tenSach.$error.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tenSach.$error.maxlength">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_trangThaiConHang">Trang Thai Con Hang</label>
+            <input type="checkbox" class="form-control" name="trangThaiConHang" id="field_trangThaiConHang"
+                    ng-model="vm.book.trangThaiConHang"
+                     />
+            <div ng-show="editForm.trangThaiConHang.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.trangThaiConHang.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tacGia">Tac Gia</label>
+            <input type="number" class="form-control" name="tacGia" id="field_tacGia"
+                    ng-model="vm.book.tacGia"
+                    required />
+            <div ng-show="editForm.tacGia.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tacGia.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tacGia.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tomTat">Tom Tat</label>
+            <input type="text" class="form-control" name="tomTat" id="field_tomTat"
+                    ng-model="vm.book.tomTat"
+                    ng-maxlength="2000" />
+            <div ng-show="editForm.tomTat.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tomTat.$error.maxlength">
+                    This field cannot be longer than 2000 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_giaCu">Gia Cu</label>
+            <input type="text" class="form-control" name="giaCu" id="field_giaCu"
+                    ng-model="vm.book.giaCu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_giaMoi">Gia Moi</label>
+            <input type="text" class="form-control" name="giaMoi" id="field_giaMoi"
+                    ng-model="vm.book.giaMoi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_rating">Rating</label>
+            <input type="number" class="form-control" name="rating" id="field_rating"
+                    ng-model="vm.book.rating"
+                    min="0" max="5" />
+            <div ng-show="editForm.rating.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rating.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rating.$error.max">
+                    This field cannot be more than 5.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rating.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_anhDaiDien">Anh Dai Dien</label>
+            <input type="text" class="form-control" name="anhDaiDien" id="field_anhDaiDien"
+                    ng-model="vm.book.anhDaiDien"
+                    ng-maxlength="400" />
+            <div ng-show="editForm.anhDaiDien.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.anhDaiDien.$error.maxlength">
+                    This field cannot be longer than 400 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tag">Tag</label>
+            <input type="text" class="form-control" name="tag" id="field_tag"
+                    ng-model="vm.book.tag"
+                    ng-maxlength="50" />
+            <div ng-show="editForm.tag.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tag.$error.maxlength">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

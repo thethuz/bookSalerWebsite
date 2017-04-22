@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Cart Chi Tiet</span> {{vm.cartChiTiet.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Book Id</span></dt>
+        <dd>
+            <span>{{vm.cartChiTiet.bookId}}</span>
+        </dd>
+        <dt><span>Number Of Book</span></dt>
+        <dd>
+            <span>{{vm.cartChiTiet.numberOfBook}}</span>
+        </dd>
+        <dt><span>Thanhtien</span></dt>
+        <dd>
+            <span>{{vm.cartChiTiet.thanhtien}}</span>
+        </dd>
+        <dt><span>Cart Id</span></dt>
+        <dd>
+            <span>{{vm.cartChiTiet.cartId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="cart-chi-tiet-detail.edit({id:vm.cartChiTiet.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

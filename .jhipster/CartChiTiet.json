@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "bookId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "numberOfBook",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "thanhtien",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cartId",
+            "fieldType": "Long"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "cart_chi_tiet",
+    "pagination": "pager"
+}
