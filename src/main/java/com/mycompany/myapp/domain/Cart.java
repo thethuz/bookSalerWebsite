@@ -24,7 +24,7 @@ public class Cart implements Serializable {
     private String totalPrice;
 
     @Field("user_id")
-    private Long userId;
+    private String userId;
 
     @Field("order_date")
     private ZonedDateTime orderDate;
@@ -50,16 +50,16 @@ public class Cart implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public Cart userId(Long userId) {
+    public Cart userId(String userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

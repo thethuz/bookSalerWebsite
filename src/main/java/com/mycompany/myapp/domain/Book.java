@@ -31,7 +31,7 @@ public class Book implements Serializable {
 
     @NotNull
     @Field("tac_gia")
-    private Long tacGia;
+    private String tacGia;
 
     @Size(max = 2000)
     @Field("tom_tat")
@@ -90,16 +90,16 @@ public class Book implements Serializable {
         this.trangThaiConHang = trangThaiConHang;
     }
 
-    public Long getTacGia() {
+    public String getTacGia() {
         return tacGia;
     }
 
-    public Book tacGia(Long tacGia) {
+    public Book tacGia(String tacGia) {
         this.tacGia = tacGia;
         return this;
     }
 
-    public void setTacGia(Long tacGia) {
+    public void setTacGia(String tacGia) {
         this.tacGia = tacGia;
     }
 

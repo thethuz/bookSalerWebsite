@@ -31,7 +31,7 @@ import java.util.Optional;
 public class BookResource {
 
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
-        
+
     @Inject
     private BookService bookService;
 
@@ -55,6 +55,30 @@ public class BookResource {
             .body(result);
     }
 
+    @GetMapping("/books/addtoCart/")
+    @Timed
+    public ResponseEntity<Book> addBookToCart (@Valid @RequestBody Book book,@RequestBody String userid ) throws URISyntaxException{
+      Book result = bookService.save(book);
+      return ResponseEntity.created(new URI("/api/books/" + result.getId()))
+          .headers(HeaderUtil.createEntityCreationAlert("book", result.getId().toString()))
+          .body(result);
+    }
+
+    @GetMapping("/books/tacgia/{id}")
+    @Timed
+    public ResponseEntity<Page<Book>> findAllByTacGia(@PathVariable String tacGia) throws URISyntaxException{
+      Page<Book> page = bookService.findAllByTacGia(tacGia);
+      HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/books");
+      return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/books/tag/{tag}")
+    @Timed
+    public ResponseEntity<Page<Book>> findAllByTag(@PathVariable String tag) throws URISyntaxException{
+      Page<Book> page = bookService.findAllByTag(tag);
+      HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/books");
+      return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
     /**
      * PUT  /books : Updates an existing book.
      *
@@ -86,7 +110,7 @@ public class BookResource {
      */
     @GetMapping("/books")
     @Timed
-    public ResponseEntity<List<Book>> getAllBooks(@ApiParam Pageable pageable)
+    public ResponseEntity<Page<Book>> getAllBooks(@ApiParam Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Books");
         Page<Book> page = bookService.findAll(pageable);

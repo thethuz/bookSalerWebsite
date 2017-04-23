@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Paying</span> {{vm.paying.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.paying.price}}</span>
+        </dd>
+        <dt><span>Price With VAT</span></dt>
+        <dd>
+            <span>{{vm.paying.priceWithVAT}}</span>
+        </dd>
+        <dt><span>Phuong Thuc Thanh Toan</span></dt>
+        <dd>
+            <span>{{vm.paying.phuongThucThanhToan}}</span>
+        </dd>
+        <dt><span>Hoten</span></dt>
+        <dd>
+            <span>{{vm.paying.hoten}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.paying.email}}</span>
+        </dd>
+        <dt><span>Dia Chi</span></dt>
+        <dd>
+            <span>{{vm.paying.diaChi}}</span>
+        </dd>
+        <dt><span>Chi Tiet Giao Dich</span></dt>
+        <dd>
+            <span>{{vm.paying.chiTietGiaoDich}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="paying-detail.edit({id:vm.paying.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

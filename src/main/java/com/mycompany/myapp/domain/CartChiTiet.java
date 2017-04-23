@@ -20,7 +20,7 @@ public class CartChiTiet implements Serializable {
     private String id;
 
     @Field("book_id")
-    private Long bookId;
+    private String bookId;
 
     @Field("number_of_book")
     private Integer numberOfBook;
@@ -29,7 +29,7 @@ public class CartChiTiet implements Serializable {
     private String thanhtien;
 
     @Field("cart_id")
-    private Long cartId;
+    private String cartId;
 
     public String getId() {
         return id;
@@ -39,16 +39,16 @@ public class CartChiTiet implements Serializable {
         this.id = id;
     }
 
-    public Long getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public CartChiTiet bookId(Long bookId) {
+    public CartChiTiet bookId(String bookId) {
         this.bookId = bookId;
         return this;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
@@ -78,16 +78,16 @@ public class CartChiTiet implements Serializable {
         this.thanhtien = thanhtien;
     }
 
-    public Long getCartId() {
+    public String getCartId() {
         return cartId;
     }
 
-    public CartChiTiet cartId(Long cartId) {
+    public CartChiTiet cartId(String cartId) {
         this.cartId = cartId;
         return this;
     }
 
-    public void setCartId(Long cartId) {
+    public void setCartId(String cartId) {
         this.cartId = cartId;
     }
 

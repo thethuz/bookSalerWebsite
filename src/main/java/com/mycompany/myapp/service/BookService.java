@@ -18,7 +18,7 @@ import java.util.List;
 public class BookService {
 
     private final Logger log = LoggerFactory.getLogger(BookService.class);
-    
+
     @Inject
     private BookRepository bookRepository;
 
@@ -34,9 +34,26 @@ public class BookService {
         return result;
     }
 
+    public Book findOneByTacGia(String tacGia){
+      log.debug("Request to get Book by tacGiaID: {}",tacGia);
+      Book result=bookRepository.findOneByTacGia(tacGia);
+      return result;
+    }
+
+    public Page<Book> findAllByTacGia(String tacGia){
+      log.debug("Request to get Book by tacGiaID: {}",tacGia);
+      Page<Book> result=bookRepository.findAllByTacGia(tacGia);
+      return result;
+    }
+
+    public Page<Book> findAllByTag(String tag){
+      log.debug("Request to get Book by tacGiaID: {}",tag);
+      Page<Book> result=bookRepository.findAllByTag(tag);
+      return result;
+    }
     /**
      *  Get all the books.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
