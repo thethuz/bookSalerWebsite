@@ -9,5 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 @SuppressWarnings("unused")
 public interface CartRepository extends MongoRepository<Cart,String> {
-
+  public Cart findByUserIdAndStatusTrue(String userId);
+  public Cart findByUserIdAndStatusFalse(String userId);
 }

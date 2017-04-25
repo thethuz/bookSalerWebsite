@@ -42,17 +42,17 @@ public class BookResourceIntTest {
     private static final Boolean DEFAULT_TRANG_THAI_CON_HANG = false;
     private static final Boolean UPDATED_TRANG_THAI_CON_HANG = true;
 
-    private static final Long DEFAULT_TAC_GIA = 1L;
-    private static final Long UPDATED_TAC_GIA = 2L;
+    private static final String DEFAULT_TAC_GIA = "AAAAAAAAAA";
+    private static final String UPDATED_TAC_GIA = "BBBBBBBBBB";
 
     private static final String DEFAULT_TOM_TAT = "AAAAAAAAAA";
     private static final String UPDATED_TOM_TAT = "BBBBBBBBBB";
 
-    private static final String DEFAULT_GIA_CU = "AAAAAAAAAA";
-    private static final String UPDATED_GIA_CU = "BBBBBBBBBB";
+    private static final Integer DEFAULT_GIA_CU = 0;
+    private static final Integer UPDATED_GIA_CU = 1;
 
-    private static final String DEFAULT_GIA_MOI = "AAAAAAAAAA";
-    private static final String UPDATED_GIA_MOI = "BBBBBBBBBB";
+    private static final Integer DEFAULT_GIA_MOI = 0;
+    private static final Integer UPDATED_GIA_MOI = 1;
 
     private static final Integer DEFAULT_RATING = 0;
     private static final Integer UPDATED_RATING = 1;
@@ -223,7 +223,7 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(book.getId())))
             .andExpect(jsonPath("$.[*].tenSach").value(hasItem(DEFAULT_TEN_SACH.toString())))
             .andExpect(jsonPath("$.[*].trangThaiConHang").value(hasItem(DEFAULT_TRANG_THAI_CON_HANG.booleanValue())))
-            .andExpect(jsonPath("$.[*].tacGia").value(hasItem(DEFAULT_TAC_GIA.intValue())))
+            .andExpect(jsonPath("$.[*].tacGia").value(hasItem(DEFAULT_TAC_GIA.toString())))
             .andExpect(jsonPath("$.[*].tomTat").value(hasItem(DEFAULT_TOM_TAT.toString())))
             .andExpect(jsonPath("$.[*].giaCu").value(hasItem(DEFAULT_GIA_CU.toString())))
             .andExpect(jsonPath("$.[*].giaMoi").value(hasItem(DEFAULT_GIA_MOI.toString())))
@@ -244,10 +244,10 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.id").value(book.getId()))
             .andExpect(jsonPath("$.tenSach").value(DEFAULT_TEN_SACH.toString()))
             .andExpect(jsonPath("$.trangThaiConHang").value(DEFAULT_TRANG_THAI_CON_HANG.booleanValue()))
-            .andExpect(jsonPath("$.tacGia").value(DEFAULT_TAC_GIA.intValue()))
+            .andExpect(jsonPath("$.tacGia").value(DEFAULT_TAC_GIA.toString()))
             .andExpect(jsonPath("$.tomTat").value(DEFAULT_TOM_TAT.toString()))
-            .andExpect(jsonPath("$.giaCu").value(DEFAULT_GIA_CU.toString()))
-            .andExpect(jsonPath("$.giaMoi").value(DEFAULT_GIA_MOI.toString()))
+            .andExpect(jsonPath("$.giaCu").value(DEFAULT_GIA_CU))
+            .andExpect(jsonPath("$.giaMoi").value(DEFAULT_GIA_MOI))
             .andExpect(jsonPath("$.rating").value(DEFAULT_RATING))
             .andExpect(jsonPath("$.anhDaiDien").value(DEFAULT_ANH_DAI_DIEN.toString()))
             .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.toString()));

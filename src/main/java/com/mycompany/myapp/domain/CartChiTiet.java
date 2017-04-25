@@ -26,7 +26,7 @@ public class CartChiTiet implements Serializable {
     private Integer numberOfBook;
 
     @Field("thanhtien")
-    private String thanhtien;
+    private long thanhtien;
 
     @Field("cart_id")
     private String cartId;
@@ -65,16 +65,16 @@ public class CartChiTiet implements Serializable {
         this.numberOfBook = numberOfBook;
     }
 
-    public String getThanhtien() {
+    public long getThanhtien() {
         return thanhtien;
     }
 
-    public CartChiTiet thanhtien(String thanhtien) {
+    public CartChiTiet thanhtien(long thanhtien) {
         this.thanhtien = thanhtien;
         return this;
     }
 
-    public void setThanhtien(String thanhtien) {
+    public void setThanhtien(long thanhtien) {
         this.thanhtien = thanhtien;
     }
 

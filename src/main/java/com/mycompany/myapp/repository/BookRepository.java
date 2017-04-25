@@ -5,6 +5,7 @@ import com.mycompany.myapp.domain.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Spring Data MongoDB repository for the Book entity.
@@ -13,7 +14,7 @@ import org.springframework.data.domain.Page;
 public interface BookRepository extends MongoRepository<Book,String> {
   Book findOneByTacGia(String tacGia);
 
-  Page<Book> findAllByTacGia(String tacGia);
+  List<Book> findAllByTacGia(String tacGia);
 
-  Page<Book> findAllByTag(String tag);
+  List<Book> findAllByTag(String tag);
 }

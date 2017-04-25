@@ -18,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -44,7 +45,7 @@ public class CartResource {
      */
     @PostMapping("/carts")
     @Timed
-    public ResponseEntity<Cart> createCart(@RequestBody Cart cart) throws URISyntaxException {
+    public ResponseEntity<Cart> createCart(@Valid @RequestBody Cart cart) throws URISyntaxException {
         log.debug("REST request to save Cart : {}", cart);
         if (cart.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("cart", "idexists", "A new cart cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class CartResource {
      */
     @PutMapping("/carts")
     @Timed
-    public ResponseEntity<Cart> updateCart(@RequestBody Cart cart) throws URISyntaxException {
+    public ResponseEntity<Cart> updateCart(@Valid @RequestBody Cart cart) throws URISyntaxException {
         log.debug("REST request to update Cart : {}", cart);
         if (cart.getId() == null) {
             return createCart(cart);

@@ -116,8 +116,10 @@
                         entity: function () {
                             return {
                                 totalPrice: null,
-                                userId: null,
                                 orderDate: null,
+                                status: null,
+                                token: null,
+                                userId: null,
                                 id: null
                             };
                         }

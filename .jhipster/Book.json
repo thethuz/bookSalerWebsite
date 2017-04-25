@@ -21,27 +21,12 @@
             ]
         },
         {
-            "fieldName": "tacGia",
-            "fieldType": "Long",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "tomTat",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "2000"
-        },
-        {
-            "fieldName": "giaCu",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "giaMoi",
-            "fieldType": "String"
         },
         {
             "fieldName": "rating",
@@ -68,6 +53,22 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "giaCu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "giaMoi",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tacGia",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
         }
     ],
     "dto": "no",

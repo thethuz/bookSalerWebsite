@@ -43,11 +43,17 @@ public class CartResourceIntTest {
     private static final String DEFAULT_TOTAL_PRICE = "AAAAAAAAAA";
     private static final String UPDATED_TOTAL_PRICE = "BBBBBBBBBB";
 
-    private static final Long DEFAULT_USER_ID = 1L;
-    private static final Long UPDATED_USER_ID = 2L;
-
     private static final ZonedDateTime DEFAULT_ORDER_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_ORDER_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final Boolean DEFAULT_STATUS = false;
+    private static final Boolean UPDATED_STATUS = true;
+
+    private static final String DEFAULT_TOKEN = "AAAAAAAAAA";
+    private static final String UPDATED_TOKEN = "BBBBBBBBBB";
+
+    private static final String DEFAULT_USER_ID = "AAAAAAAAAA";
+    private static final String UPDATED_USER_ID = "BBBBBBBBBB";
 
     @Inject
     private CartRepository cartRepository;
@@ -81,8 +87,10 @@ public class CartResourceIntTest {
     public static Cart createEntity() {
         Cart cart = new Cart()
                 .totalPrice(DEFAULT_TOTAL_PRICE)
-                .userId(DEFAULT_USER_ID)
-                .orderDate(DEFAULT_ORDER_DATE);
+                .orderDate(DEFAULT_ORDER_DATE)
+                .status(DEFAULT_STATUS)
+                .token(DEFAULT_TOKEN)
+                .userId(DEFAULT_USER_ID);
         return cart;
     }
 
@@ -108,8 +116,10 @@ public class CartResourceIntTest {
         assertThat(cartList).hasSize(databaseSizeBeforeCreate + 1);
         Cart testCart = cartList.get(cartList.size() - 1);
         assertThat(testCart.getTotalPrice()).isEqualTo(DEFAULT_TOTAL_PRICE);
-        assertThat(testCart.getUserId()).isEqualTo(DEFAULT_USER_ID);
         assertThat(testCart.getOrderDate()).isEqualTo(DEFAULT_ORDER_DATE);
+        assertThat(testCart.isStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testCart.getToken()).isEqualTo(DEFAULT_TOKEN);
+        assertThat(testCart.getUserId()).isEqualTo(DEFAULT_USER_ID);
     }
 
     @Test
@@ -142,8 +152,10 @@ public class CartResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cart.getId())))
             .andExpect(jsonPath("$.[*].totalPrice").value(hasItem(DEFAULT_TOTAL_PRICE.toString())))
-            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.intValue())))
-            .andExpect(jsonPath("$.[*].orderDate").value(hasItem(sameInstant(DEFAULT_ORDER_DATE))));
+            .andExpect(jsonPath("$.[*].orderDate").value(hasItem(sameInstant(DEFAULT_ORDER_DATE))))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.booleanValue())))
+            .andExpect(jsonPath("$.[*].token").value(hasItem(DEFAULT_TOKEN.toString())))
+            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.toString())));
     }
 
     @Test
@@ -157,8 +169,10 @@ public class CartResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(cart.getId()))
             .andExpect(jsonPath("$.totalPrice").value(DEFAULT_TOTAL_PRICE.toString()))
-            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.intValue()))
-            .andExpect(jsonPath("$.orderDate").value(sameInstant(DEFAULT_ORDER_DATE)));
+            .andExpect(jsonPath("$.orderDate").value(sameInstant(DEFAULT_ORDER_DATE)))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.booleanValue()))
+            .andExpect(jsonPath("$.token").value(DEFAULT_TOKEN.toString()))
+            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.toString()));
     }
 
     @Test
@@ -178,8 +192,10 @@ public class CartResourceIntTest {
         Cart updatedCart = cartRepository.findOne(cart.getId());
         updatedCart
                 .totalPrice(UPDATED_TOTAL_PRICE)
-                .userId(UPDATED_USER_ID)
-                .orderDate(UPDATED_ORDER_DATE);
+                .orderDate(UPDATED_ORDER_DATE)
+                .status(UPDATED_STATUS)
+                .token(UPDATED_TOKEN)
+                .userId(UPDATED_USER_ID);
 
         restCartMockMvc.perform(put("/api/carts")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -191,8 +207,10 @@ public class CartResourceIntTest {
         assertThat(cartList).hasSize(databaseSizeBeforeUpdate);
         Cart testCart = cartList.get(cartList.size() - 1);
         assertThat(testCart.getTotalPrice()).isEqualTo(UPDATED_TOTAL_PRICE);
-        assertThat(testCart.getUserId()).isEqualTo(UPDATED_USER_ID);
         assertThat(testCart.getOrderDate()).isEqualTo(UPDATED_ORDER_DATE);
+        assertThat(testCart.isStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testCart.getToken()).isEqualTo(UPDATED_TOKEN);
+        assertThat(testCart.getUserId()).isEqualTo(UPDATED_USER_ID);
     }
 
     @Test

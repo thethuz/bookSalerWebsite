@@ -7,13 +7,29 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "userId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "orderDate",
             "fieldType": "ZonedDateTime",
             "fieldValidateRules": []
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "token",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
         }
     ],
     "dto": "no",

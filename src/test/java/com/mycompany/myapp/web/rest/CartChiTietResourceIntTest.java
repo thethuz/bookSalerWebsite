@@ -36,17 +36,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BookManagementApp.class)
 public class CartChiTietResourceIntTest {
 
-    private static final Long DEFAULT_BOOK_ID = 1L;
-    private static final Long UPDATED_BOOK_ID = 2L;
+    private static final String DEFAULT_BOOK_ID = "AAAAAAAAAA";
+    private static final String UPDATED_BOOK_ID = "BBBBBBBBBB";
 
     private static final Integer DEFAULT_NUMBER_OF_BOOK = 1;
     private static final Integer UPDATED_NUMBER_OF_BOOK = 2;
 
-    private static final String DEFAULT_THANHTIEN = "AAAAAAAAAA";
-    private static final String UPDATED_THANHTIEN = "BBBBBBBBBB";
+    private static final long DEFAULT_THANHTIEN = 0;
+    private static final long UPDATED_THANHTIEN = 1;
 
-    private static final Long DEFAULT_CART_ID = 1L;
-    private static final Long UPDATED_CART_ID = 2L;
+    private static final String DEFAULT_CART_ID = "AAAAAAAAAA";
+    private static final String UPDATED_CART_ID = "BBBBBBBBBB";
 
     @Inject
     private CartChiTietRepository cartChiTietRepository;
@@ -145,10 +145,10 @@ public class CartChiTietResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cartChiTiet.getId())))
-            .andExpect(jsonPath("$.[*].bookId").value(hasItem(DEFAULT_BOOK_ID.intValue())))
+            .andExpect(jsonPath("$.[*].bookId").value(hasItem(DEFAULT_BOOK_ID.toString())))
             .andExpect(jsonPath("$.[*].numberOfBook").value(hasItem(DEFAULT_NUMBER_OF_BOOK)))
-            .andExpect(jsonPath("$.[*].thanhtien").value(hasItem(DEFAULT_THANHTIEN.toString())))
-            .andExpect(jsonPath("$.[*].cartId").value(hasItem(DEFAULT_CART_ID.intValue())));
+            .andExpect(jsonPath("$.[*].thanhtien").value(hasItem(DEFAULT_THANHTIEN)))
+            .andExpect(jsonPath("$.[*].cartId").value(hasItem(DEFAULT_CART_ID.toString())));
     }
 
     @Test
@@ -161,10 +161,10 @@ public class CartChiTietResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(cartChiTiet.getId()))
-            .andExpect(jsonPath("$.bookId").value(DEFAULT_BOOK_ID.intValue()))
+            .andExpect(jsonPath("$.bookId").value(DEFAULT_BOOK_ID.toString()))
             .andExpect(jsonPath("$.numberOfBook").value(DEFAULT_NUMBER_OF_BOOK))
-            .andExpect(jsonPath("$.thanhtien").value(DEFAULT_THANHTIEN.toString()))
-            .andExpect(jsonPath("$.cartId").value(DEFAULT_CART_ID.intValue()));
+            .andExpect(jsonPath("$.thanhtien").value(DEFAULT_THANHTIEN))
+            .andExpect(jsonPath("$.cartId").value(DEFAULT_CART_ID.toString()));
     }
 
     @Test

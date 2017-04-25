@@ -38,10 +38,10 @@ public class Book implements Serializable {
     private String tomTat;
 
     @Field("gia_cu")
-    private String giaCu;
+    private Integer giaCu;
 
     @Field("gia_moi")
-    private String giaMoi;
+    private Integer giaMoi;
 
     @Min(value = 0)
     @Max(value = 5)
@@ -116,29 +116,29 @@ public class Book implements Serializable {
         this.tomTat = tomTat;
     }
 
-    public String getGiaCu() {
+    public Integer getGiaCu() {
         return giaCu;
     }
 
-    public Book giaCu(String giaCu) {
+    public Book giaCu(Integer giaCu) {
         this.giaCu = giaCu;
         return this;
     }
 
-    public void setGiaCu(String giaCu) {
+    public void setGiaCu(Integer giaCu) {
         this.giaCu = giaCu;
     }
 
-    public String getGiaMoi() {
+    public Integer getGiaMoi() {
         return giaMoi;
     }
 
-    public Book giaMoi(String giaMoi) {
+    public Book giaMoi(Integer giaMoi) {
         this.giaMoi = giaMoi;
         return this;
     }
 
-    public void setGiaMoi(String giaMoi) {
+    public void setGiaMoi(Integer giaMoi) {
         this.giaMoi = giaMoi;
     }
 

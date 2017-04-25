@@ -119,8 +119,6 @@
                                 trangThaiConHang: false,
                                 tacGia: null,
                                 tomTat: null,
-                                giaCu: null,
-                                giaMoi: null,
                                 rating: null,
                                 anhDaiDien: null,
                                 tag: null,

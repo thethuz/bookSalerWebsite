@@ -20,8 +20,10 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="totalPrice"><span>Total Price</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="userId"><span>User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="orderDate"><span>Order Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span>Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="token"><span>Token</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userId"><span>User Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,8 +31,10 @@
                 <tr ng-repeat="cart in vm.carts track by cart.id">
                     <td><a ui-sref="cart-detail({id:cart.id})">{{cart.id}}</a></td>
                     <td>{{cart.totalPrice}}</td>
-                    <td>{{cart.userId}}</td>
                     <td>{{cart.orderDate | date:'medium'}}</td>
+                    <td>{{cart.status}}</td>
+                    <td>{{cart.token}}</td>
+                    <td>{{cart.userId}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

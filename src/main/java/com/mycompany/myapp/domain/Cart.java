@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
@@ -23,11 +24,19 @@ public class Cart implements Serializable {
     @Field("total_price")
     private String totalPrice;
 
-    @Field("user_id")
-    private String userId;
-
     @Field("order_date")
     private ZonedDateTime orderDate;
+
+    @Field("status")
+    private Boolean status;
+
+    @Size(max = 50)
+    @Field("token")
+    private String token;
+
+    @Size(max = 50)
+    @Field("user_id")
+    private String userId;
 
     public String getId() {
         return id;
@@ -50,19 +59,6 @@ public class Cart implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public Cart userId(String userId) {
-        this.userId = userId;
-        return this;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public ZonedDateTime getOrderDate() {
         return orderDate;
     }
@@ -74,6 +70,45 @@ public class Cart implements Serializable {
 
     public void setOrderDate(ZonedDateTime orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public Boolean isStatus() {
+        return status;
+    }
+
+    public Cart status(Boolean status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public Cart token(String token) {
+        this.token = token;
+        return this;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public Cart userId(String userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -101,8 +136,10 @@ public class Cart implements Serializable {
         return "Cart{" +
             "id=" + id +
             ", totalPrice='" + totalPrice + "'" +
-            ", userId='" + userId + "'" +
             ", orderDate='" + orderDate + "'" +
+            ", status='" + status + "'" +
+            ", token='" + token + "'" +
+            ", userId='" + userId + "'" +
             '}';
     }
 }

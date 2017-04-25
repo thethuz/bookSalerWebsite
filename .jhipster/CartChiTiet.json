@@ -11,12 +11,16 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "thanhtien",
-            "fieldType": "String"
+            "fieldName": "thanhTien",
+            "fieldType": "Long"
         },
         {
             "fieldName": "cartId",
-            "fieldType": "Long"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
         }
     ],
     "dto": "no",
