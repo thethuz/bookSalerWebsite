@@ -35,11 +35,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = BookManagementApp.class)
 public class PayingResourceIntTest {
 
-    private static final String DEFAULT_PRICE = "AAAAAAAAAA";
-    private static final String UPDATED_PRICE = "BBBBBBBBBB";
+    private static final long DEFAULT_PRICE = 0;
+    private static final long UPDATED_PRICE = 1;
 
-    private static final String DEFAULT_PRICE_WITH_VAT = "AAAAAAAAAA";
-    private static final String UPDATED_PRICE_WITH_VAT = "BBBBBBBBBB";
+    private static final long DEFAULT_PRICE_WITH_VAT = 0;
+    private static final long UPDATED_PRICE_WITH_VAT = 1;
 
     private static final String DEFAULT_PHUONG_THUC_THANH_TOAN = "AAAAAAAAAA";
     private static final String UPDATED_PHUONG_THUC_THANH_TOAN = "BBBBBBBBBB";
@@ -156,8 +156,8 @@ public class PayingResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(paying.getId())))
-            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.toString())))
-            .andExpect(jsonPath("$.[*].priceWithVAT").value(hasItem(DEFAULT_PRICE_WITH_VAT.toString())))
+            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE)))
+            .andExpect(jsonPath("$.[*].priceWithVAT").value(hasItem(DEFAULT_PRICE_WITH_VAT)))
             .andExpect(jsonPath("$.[*].phuongThucThanhToan").value(hasItem(DEFAULT_PHUONG_THUC_THANH_TOAN.toString())))
             .andExpect(jsonPath("$.[*].hoten").value(hasItem(DEFAULT_HOTEN.toString())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
@@ -175,8 +175,8 @@ public class PayingResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(paying.getId()))
-            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.toString()))
-            .andExpect(jsonPath("$.priceWithVAT").value(DEFAULT_PRICE_WITH_VAT.toString()))
+            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE))
+            .andExpect(jsonPath("$.priceWithVAT").value(DEFAULT_PRICE_WITH_VAT))
             .andExpect(jsonPath("$.phuongThucThanhToan").value(DEFAULT_PHUONG_THUC_THANH_TOAN.toString()))
             .andExpect(jsonPath("$.hoten").value(DEFAULT_HOTEN.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))

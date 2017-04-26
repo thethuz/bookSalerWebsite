@@ -69,6 +69,24 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "namXuatBan",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "9999"
+        },
+        {
+            "fieldName": "nhaXuatBan",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
         }
     ],
     "dto": "no",

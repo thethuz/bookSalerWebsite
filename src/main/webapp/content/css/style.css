@@ -1,0 +1,96 @@
+* {
+	box-sizing: border-box;
+
+}
+
+body {
+	height: auto;
+	background-color: #f4f4f4; 
+
+
+}
+
+.fixnav {
+	box-shadow: 0px 0px 0px 0px #9c27b0;
+}
+
+.fixheader {
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+}
+
+.titleheader{
+	height: 160px;
+	position: relative;
+}
+
+.textheader {
+	margin-top: 20px;
+	margin-left: 12%; 
+	position: absolute;
+	transform: all 0.5s;
+}
+
+nav .home {
+	opacity: 0;
+}
+
+nav .nothome{	
+	padding-left: 50px;	
+}
+
+header div {
+	transition: opacity 0.5s;
+}
+main {
+	padding-bottom: 100px;
+	min-height: 500px;
+}
+/* slide */
+#hero .slider {
+    height: 650px !important;
+}
+#hero .slider .slides {
+    height: 100% !important;
+}
+#hero .slider .indicators {
+    bottom: 60px;
+    z-index: 2;
+}
+#hero .slider .indicators .indicator-item.active {
+    background: #424242;
+}
+
+
+#book {
+	padding: 40px;
+	margin-top: -40px;
+}
+
+.after {
+	height: 230px; 
+
+}
+
+#test2 {
+	margin-top: 30px;
+}
+
+#pined {
+    position : fixed !important;
+    margin-top: -20px;
+}
+
+.namebook {
+	font-size: 20px;
+	font-family: Roboto Slab;
+	margin-top: -20px;
+}
+
+.actor {
+	margin-top: -20px;
+}
+
+.cost {
+	margin-top: -10px;
+}

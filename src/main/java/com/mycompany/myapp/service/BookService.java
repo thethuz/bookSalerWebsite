@@ -31,6 +31,7 @@ public class BookService {
     private CartRepository cartRepository;
     private CartChiTietRepository cartChiTietRepository;
     private CartChiTietService cartChiTietService;
+    private UserService userService;
     /**
      * Save a book.
      *
@@ -48,13 +49,17 @@ public class BookService {
       Book result=bookRepository.findOneByTacGia(tacGia);
       return result;
     }
-
+    public String getIdCurrentUserLogin(){
+      String id=userService.getUserWithAuthorities().getId();
+      return id;
+    }
     public List<Book> findAllByTacGia(String tacGia){
       log.debug("Request to get Book by tacGiaID: {}",tacGia);
       List<Book> result=bookRepository.findAllByTacGia(tacGia);
       return result;
     }
-    public int addBookToCart(Book book, String userId){
+    public int addBookToCart(Book book){
+      String userId=getIdCurrentUserLogin();
       log.debug("request to add Book to Cart");
       if(!book.isTrangThaiConHang()){
         return 1; //Het hang
@@ -86,7 +91,9 @@ public class BookService {
         }
       return 0;
     }
-    public int subBookFromCart(Book book,String userId){
+    
+    public int subBookFromCart(Book book){
+      String userId=getIdCurrentUserLogin();
       log.debug("request to remove Book from Cart");
       if(!book.isTrangThaiConHang()){
         return 1;

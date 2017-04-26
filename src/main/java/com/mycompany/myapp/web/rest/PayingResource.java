@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Paying;
 
 import com.mycompany.myapp.repository.PayingRepository;
+import com.mycompany.myapp.service.PayingService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 
 import org.slf4j.Logger;
@@ -28,10 +29,10 @@ import java.util.Optional;
 public class PayingResource {
 
     private final Logger log = LoggerFactory.getLogger(PayingResource.class);
-        
+
     @Inject
     private PayingRepository payingRepository;
-
+    private PayingService payingService;
     /**
      * POST  /payings : Create a new paying.
      *
@@ -46,10 +47,19 @@ public class PayingResource {
         if (paying.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("paying", "idexists", "A new paying cannot already have an ID")).body(null);
         }
-        Paying result = payingRepository.save(paying);
+        Paying result = payingService.save(paying);
         return ResponseEntity.created(new URI("/api/payings/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId().toString()))
             .body(result);
+    }
+    @GetMapping("/prefixPaying")
+    @Timed
+    public ResponseEntity<Paying> getPrefixPaying() throws URISyntaxException{
+      log.debug("REST request to get Prefix-Paying");
+      Paying result = payingService.getPrefix();
+      return ResponseEntity.created(new URI("/api/payings/" + result.getId()))
+          .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId().toString()))
+          .body(result);
     }
 
     /**
@@ -61,6 +71,7 @@ public class PayingResource {
      * or with status 500 (Internal Server Error) if the paying couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
+     /*
     @PutMapping("/payings")
     @Timed
     public ResponseEntity<Paying> updatePaying(@Valid @RequestBody Paying paying) throws URISyntaxException {
@@ -73,6 +84,7 @@ public class PayingResource {
             .headers(HeaderUtil.createEntityUpdateAlert("paying", paying.getId().toString()))
             .body(result);
     }
+    */
 
     /**
      * GET  /payings : get all the payings.
@@ -86,6 +98,10 @@ public class PayingResource {
         List<Paying> payings = payingRepository.findAll();
         return payings;
     }
+
+    // @GetMapping("/payings/done")
+    // @Timed
+    // public ResponseEntity<Boolean> getPaid(@)
 
     /**
      * GET  /payings/:id : get the "id" paying.

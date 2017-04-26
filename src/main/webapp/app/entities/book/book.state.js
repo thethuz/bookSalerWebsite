@@ -117,11 +117,15 @@
                             return {
                                 tenSach: null,
                                 trangThaiConHang: false,
-                                tacGia: null,
                                 tomTat: null,
                                 rating: null,
                                 anhDaiDien: null,
                                 tag: null,
+                                giaCu: null,
+                                giaMoi: null,
+                                tacGia: null,
+                                namXuatBan: null,
+                                nhaXuatBan: null,
                                 id: null
                             };
                         }

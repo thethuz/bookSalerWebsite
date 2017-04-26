@@ -5,6 +5,7 @@ import com.mycompany.myapp.domain.Book;
 import com.mycompany.myapp.domain.Author;
 import com.mycompany.myapp.service.BookService;
 import com.mycompany.myapp.service.AuthorService;
+// import com.mycompany.myapp.service.
 
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
@@ -65,8 +66,26 @@ public class BookResource {
 
     @GetMapping("/books/addtoCart/")
     @Timed
-    public ResponseEntity<Book> addBookToCart (@Valid @RequestBody Book book,@RequestBody String userid ) throws URISyntaxException{
-      int result = bookService.addBookToCart(book,userid);
+    public ResponseEntity<Book> addBookToCart (@Valid @RequestBody Book book) throws URISyntaxException{
+      //,@RequestBody String userid
+
+      int result = bookService.addBookToCart(book);
+      // if(result==0)
+      // {
+        return ResponseEntity.created(new URI("/api/books/" + book.getId()))
+          .headers(HeaderUtil.createEntityCreationAlert("book", book.getId().toString()))
+          .body(book);
+      // }
+      // else return ResponseEntity.created(new URI("/api/books/" + book.getId()))
+      //   .headers(HeaderUtil.createEntityCreationAlert("book", book.getId().toString()))
+      //   .body(result);
+    }
+    @GetMapping("/books/subfromCart/")
+    @Timed
+    public ResponseEntity<Book> subBookFromCart (@Valid @RequestBody Book book) throws URISyntaxException{
+      //,@RequestBody String userid
+
+      int result = bookService.subBookFromCart(book);
       // if(result==0)
       // {
         return ResponseEntity.created(new URI("/api/books/" + book.getId()))

@@ -29,19 +29,9 @@ public class Book implements Serializable {
     @Field("trang_thai_con_hang")
     private Boolean trangThaiConHang;
 
-    @NotNull
-    @Field("tac_gia")
-    private String tacGia;
-
     @Size(max = 2000)
     @Field("tom_tat")
     private String tomTat;
-
-    @Field("gia_cu")
-    private Integer giaCu;
-
-    @Field("gia_moi")
-    private Integer giaMoi;
 
     @Min(value = 0)
     @Max(value = 5)
@@ -55,6 +45,25 @@ public class Book implements Serializable {
     @Size(max = 50)
     @Field("tag")
     private String tag;
+
+    @Field("gia_cu")
+    private Integer giaCu;
+
+    @Field("gia_moi")
+    private Integer giaMoi;
+
+    @Size(max = 100)
+    @Field("tac_gia")
+    private String tacGia;
+
+    @Min(value = 0)
+    @Max(value = 9999)
+    @Field("nam_xuat_ban")
+    private Integer namXuatBan;
+
+    @Size(max = 100)
+    @Field("nha_xuat_ban")
+    private String nhaXuatBan;
 
     public String getId() {
         return id;
@@ -90,19 +99,6 @@ public class Book implements Serializable {
         this.trangThaiConHang = trangThaiConHang;
     }
 
-    public String getTacGia() {
-        return tacGia;
-    }
-
-    public Book tacGia(String tacGia) {
-        this.tacGia = tacGia;
-        return this;
-    }
-
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
-    }
-
     public String getTomTat() {
         return tomTat;
     }
@@ -114,32 +110,6 @@ public class Book implements Serializable {
 
     public void setTomTat(String tomTat) {
         this.tomTat = tomTat;
-    }
-
-    public Integer getGiaCu() {
-        return giaCu;
-    }
-
-    public Book giaCu(Integer giaCu) {
-        this.giaCu = giaCu;
-        return this;
-    }
-
-    public void setGiaCu(Integer giaCu) {
-        this.giaCu = giaCu;
-    }
-
-    public Integer getGiaMoi() {
-        return giaMoi;
-    }
-
-    public Book giaMoi(Integer giaMoi) {
-        this.giaMoi = giaMoi;
-        return this;
-    }
-
-    public void setGiaMoi(Integer giaMoi) {
-        this.giaMoi = giaMoi;
     }
 
     public Integer getRating() {
@@ -181,6 +151,71 @@ public class Book implements Serializable {
         this.tag = tag;
     }
 
+    public Integer getGiaCu() {
+        return giaCu;
+    }
+
+    public Book giaCu(Integer giaCu) {
+        this.giaCu = giaCu;
+        return this;
+    }
+
+    public void setGiaCu(Integer giaCu) {
+        this.giaCu = giaCu;
+    }
+
+    public Integer getGiaMoi() {
+        return giaMoi;
+    }
+
+    public Book giaMoi(Integer giaMoi) {
+        this.giaMoi = giaMoi;
+        return this;
+    }
+
+    public void setGiaMoi(Integer giaMoi) {
+        this.giaMoi = giaMoi;
+    }
+
+    public String getTacGia() {
+        return tacGia;
+    }
+
+    public Book tacGia(String tacGia) {
+        this.tacGia = tacGia;
+        return this;
+    }
+
+    public void setTacGia(String tacGia) {
+        this.tacGia = tacGia;
+    }
+
+    public Integer getNamXuatBan() {
+        return namXuatBan;
+    }
+
+    public Book namXuatBan(Integer namXuatBan) {
+        this.namXuatBan = namXuatBan;
+        return this;
+    }
+
+    public void setNamXuatBan(Integer namXuatBan) {
+        this.namXuatBan = namXuatBan;
+    }
+
+    public String getNhaXuatBan() {
+        return nhaXuatBan;
+    }
+
+    public Book nhaXuatBan(String nhaXuatBan) {
+        this.nhaXuatBan = nhaXuatBan;
+        return this;
+    }
+
+    public void setNhaXuatBan(String nhaXuatBan) {
+        this.nhaXuatBan = nhaXuatBan;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -207,13 +242,15 @@ public class Book implements Serializable {
             "id=" + id +
             ", tenSach='" + tenSach + "'" +
             ", trangThaiConHang='" + trangThaiConHang + "'" +
-            ", tacGia='" + tacGia + "'" +
             ", tomTat='" + tomTat + "'" +
-            ", giaCu='" + giaCu + "'" +
-            ", giaMoi='" + giaMoi + "'" +
             ", rating='" + rating + "'" +
             ", anhDaiDien='" + anhDaiDien + "'" +
             ", tag='" + tag + "'" +
+            ", giaCu='" + giaCu + "'" +
+            ", giaMoi='" + giaMoi + "'" +
+            ", tacGia='" + tacGia + "'" +
+            ", namXuatBan='" + namXuatBan + "'" +
+            ", nhaXuatBan='" + nhaXuatBan + "'" +
             '}';
     }
 }

@@ -21,10 +21,10 @@ public class Paying implements Serializable {
     private String id;
 
     @Field("price")
-    private String price;
+    private long price;
 
     @Field("price_with_vat")
-    private String priceWithVAT;
+    private long priceWithVAT;
 
     @Size(max = 100)
     @Field("phuong_thuc_thanh_toan")
@@ -54,29 +54,29 @@ public class Paying implements Serializable {
         this.id = id;
     }
 
-    public String getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public Paying price(String price) {
+    public Paying price(long price) {
         this.price = price;
         return this;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
-    public String getPriceWithVAT() {
+    public long getPriceWithVAT() {
         return priceWithVAT;
     }
 
-    public Paying priceWithVAT(String priceWithVAT) {
+    public Paying priceWithVAT(long priceWithVAT) {
         this.priceWithVAT = priceWithVAT;
         return this;
     }
 
-    public void setPriceWithVAT(String priceWithVAT) {
+    public void setPriceWithVAT(long priceWithVAT) {
         this.priceWithVAT = priceWithVAT;
     }
 

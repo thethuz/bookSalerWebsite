@@ -46,22 +46,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_tacGia">Tac Gia</label>
-            <input type="number" class="form-control" name="tacGia" id="field_tacGia"
-                    ng-model="vm.book.tacGia"
-                    required />
-            <div ng-show="editForm.tacGia.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.tacGia.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.tacGia.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" for="field_tomTat">Tom Tat</label>
             <input type="text" class="form-control" name="tomTat" id="field_tomTat"
                     ng-model="vm.book.tomTat"
@@ -114,6 +98,62 @@
                 <p class="help-block"
                     ng-show="editForm.tag.$error.maxlength">
                     This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_giaCu">Gia Cu</label>
+            <input type="number" class="form-control" name="giaCu" id="field_giaCu"
+                    ng-model="vm.book.giaCu"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_giaMoi">Gia Moi</label>
+            <input type="number" class="form-control" name="giaMoi" id="field_giaMoi"
+                    ng-model="vm.book.giaMoi"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tacGia">Tac Gia</label>
+            <input type="text" class="form-control" name="tacGia" id="field_tacGia"
+                    ng-model="vm.book.tacGia"
+                    ng-maxlength="100" />
+            <div ng-show="editForm.tacGia.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tacGia.$error.maxlength">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_namXuatBan">Nam Xuat Ban</label>
+            <input type="number" class="form-control" name="namXuatBan" id="field_namXuatBan"
+                    ng-model="vm.book.namXuatBan"
+                    min="0" max="9999" />
+            <div ng-show="editForm.namXuatBan.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.namXuatBan.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.namXuatBan.$error.max">
+                    This field cannot be more than 9999.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.namXuatBan.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nhaXuatBan">Nha Xuat Ban</label>
+            <input type="text" class="form-control" name="nhaXuatBan" id="field_nhaXuatBan"
+                    ng-model="vm.book.nhaXuatBan"
+                    ng-maxlength="100" />
+            <div ng-show="editForm.nhaXuatBan.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nhaXuatBan.$error.maxlength">
+                    This field cannot be longer than 100 characters.
                 </p>
             </div>
         </div>
