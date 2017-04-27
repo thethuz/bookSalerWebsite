@@ -38,7 +38,8 @@ public class BookResource {
 
     @Inject
     private BookService bookService;
-    private AuthorService authorService ;
+    @Inject
+    private AuthorService authorService;
 
     /**
      * POST  /books : Create a new book.
@@ -55,7 +56,10 @@ public class BookResource {
         if (book.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("book", "idexists", "A new book cannot already have an ID")).body(null);
         }
-        if(authorService.findOne(book.getTacGia())==null){
+        System.out.println(book.getTacGia());
+        System.out.println(authorService.findOne(book.getTacGia()));
+        System.out.println(authorService.findOne(book.getTacGia()).getId());
+        if(authorService.findOne(book.getTacGia()).getId()==""){
           return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("book", "idexists", "Author not exist")).body(null);
         }
         Book result = bookService.save(book);
@@ -64,7 +68,7 @@ public class BookResource {
             .body(result);
     }
 
-    
+
     @GetMapping("/books/addtoCart/")
     @Timed
     public ResponseEntity<Book> addBookToCart (@Valid @RequestBody Book book) throws URISyntaxException{

@@ -5,9 +5,9 @@
         .module('bookManagementApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state','Book','AlertService'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController ($scope, Principal, LoginService, $state, Book,AlertService) {
         var vm = this;
 
         vm.account = null;
@@ -17,6 +17,7 @@
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
+
 
         getAccount();
 
@@ -28,6 +29,33 @@
         }
         function register () {
             $state.go('register');
+        }
+        loadAll();
+
+        function loadAll () {
+            Book.query({
+                page: 0,
+                size: 20,
+                sort: ["id,asc"]
+            }, onSuccess, onError);
+            // function sort() {
+            //     var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+            //     if (vm.predicate !== 'id') {
+            //         result.push('id');
+            //     }
+            //     return result;
+            // }
+            function onSuccess(data, headers) {
+                // vm.links = ParseLinks.parse(headers('link'));
+                // vm.totalItems = headers('X-Total-Count');
+                // vm.queryCount = vm.totalItems;
+                vm.books = data;
+                console.log(data);
+                // vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
         }
     }
 })();

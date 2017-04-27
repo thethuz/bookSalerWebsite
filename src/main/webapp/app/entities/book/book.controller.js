@@ -29,6 +29,7 @@
                 if (vm.predicate !== 'id') {
                     result.push('id');
                 }
+                console.log(result);
                 return result;
             }
             function onSuccess(data, headers) {

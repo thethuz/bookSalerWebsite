@@ -46,6 +46,14 @@
                 }],
             }
         })
+        // .state('book-adding',{
+        //   parent: 'entity',
+        //   url: '/book/{id}',
+        //   data: {
+        //       authorities: ['ROLE_USER'],
+        //       pageTitle: 'Book'
+        //   },
+        // })
         .state('book-detail', {
             parent: 'entity',
             url: '/book/{id}',
