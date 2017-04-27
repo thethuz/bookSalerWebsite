@@ -57,11 +57,12 @@ public class BookResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("book", "idexists", "A new book cannot already have an ID")).body(null);
         }
         System.out.println(book.getTacGia());
-        System.out.println(authorService.findOne(book.getTacGia()));
-        System.out.println(authorService.findOne(book.getTacGia()).getId());
+        // System.out.println(authorService.findOne(book.getTacGia()));
+        // System.out.println(authorService.findOne(book.getTacGia()).getId());
         if(authorService.findOne(book.getTacGia()).getId()==""){
           return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("book", "idexists", "Author not exist")).body(null);
         }
+        book.setTenTacgia(authorService.findOne(book.getTacGia()).getTenTacgia());
         Book result = bookService.save(book);
         return ResponseEntity.created(new URI("/api/books/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("book", result.getId().toString()))

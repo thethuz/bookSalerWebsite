@@ -21,6 +21,7 @@
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="tenTacgia"><span>Ten Tacgia</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="introduce"><span>Introduce</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ngaySinh"><span>Ngay Sinh</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <td><a ui-sref="author-detail({id:author.id})">{{author.id}}</a></td>
                     <td>{{author.tenTacgia}}</td>
                     <td>{{author.introduce}}</td>
+                        <td>{{author.ngaySinh | date:'mediumDate'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

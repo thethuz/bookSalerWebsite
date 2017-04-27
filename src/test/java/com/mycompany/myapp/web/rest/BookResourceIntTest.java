@@ -69,6 +69,9 @@ public class BookResourceIntTest {
     private static final String DEFAULT_NHA_XUAT_BAN = "AAAAAAAAAA";
     private static final String UPDATED_NHA_XUAT_BAN = "BBBBBBBBBB";
 
+    private static final String DEFAULT_TEN_TACGIA = "AAAAAAAAAA";
+    private static final String UPDATED_TEN_TACGIA = "BBBBBBBBBB";
+
     @Inject
     private BookRepository bookRepository;
 
@@ -113,7 +116,8 @@ public class BookResourceIntTest {
                 .giaMoi(DEFAULT_GIA_MOI)
                 .tacGia(DEFAULT_TAC_GIA)
                 .namXuatBan(DEFAULT_NAM_XUAT_BAN)
-                .nhaXuatBan(DEFAULT_NHA_XUAT_BAN);
+                .nhaXuatBan(DEFAULT_NHA_XUAT_BAN)
+                .tenTacgia(DEFAULT_TEN_TACGIA);
         return book;
     }
 
@@ -149,6 +153,7 @@ public class BookResourceIntTest {
         assertThat(testBook.getTacGia()).isEqualTo(DEFAULT_TAC_GIA);
         assertThat(testBook.getNamXuatBan()).isEqualTo(DEFAULT_NAM_XUAT_BAN);
         assertThat(testBook.getNhaXuatBan()).isEqualTo(DEFAULT_NHA_XUAT_BAN);
+        assertThat(testBook.getTenTacgia()).isEqualTo(DEFAULT_TEN_TACGIA);
     }
 
     @Test
@@ -224,7 +229,8 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.[*].giaMoi").value(hasItem(DEFAULT_GIA_MOI)))
             .andExpect(jsonPath("$.[*].tacGia").value(hasItem(DEFAULT_TAC_GIA.toString())))
             .andExpect(jsonPath("$.[*].namXuatBan").value(hasItem(DEFAULT_NAM_XUAT_BAN)))
-            .andExpect(jsonPath("$.[*].nhaXuatBan").value(hasItem(DEFAULT_NHA_XUAT_BAN.toString())));
+            .andExpect(jsonPath("$.[*].nhaXuatBan").value(hasItem(DEFAULT_NHA_XUAT_BAN.toString())))
+            .andExpect(jsonPath("$.[*].tenTacgia").value(hasItem(DEFAULT_TEN_TACGIA.toString())));
     }
 
     @Test
@@ -247,7 +253,8 @@ public class BookResourceIntTest {
             .andExpect(jsonPath("$.giaMoi").value(DEFAULT_GIA_MOI))
             .andExpect(jsonPath("$.tacGia").value(DEFAULT_TAC_GIA.toString()))
             .andExpect(jsonPath("$.namXuatBan").value(DEFAULT_NAM_XUAT_BAN))
-            .andExpect(jsonPath("$.nhaXuatBan").value(DEFAULT_NHA_XUAT_BAN.toString()));
+            .andExpect(jsonPath("$.nhaXuatBan").value(DEFAULT_NHA_XUAT_BAN.toString()))
+            .andExpect(jsonPath("$.tenTacgia").value(DEFAULT_TEN_TACGIA.toString()));
     }
 
     @Test
@@ -277,7 +284,8 @@ public class BookResourceIntTest {
                 .giaMoi(UPDATED_GIA_MOI)
                 .tacGia(UPDATED_TAC_GIA)
                 .namXuatBan(UPDATED_NAM_XUAT_BAN)
-                .nhaXuatBan(UPDATED_NHA_XUAT_BAN);
+                .nhaXuatBan(UPDATED_NHA_XUAT_BAN)
+                .tenTacgia(UPDATED_TEN_TACGIA);
 
         restBookMockMvc.perform(put("/api/books")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -299,6 +307,7 @@ public class BookResourceIntTest {
         assertThat(testBook.getTacGia()).isEqualTo(UPDATED_TAC_GIA);
         assertThat(testBook.getNamXuatBan()).isEqualTo(UPDATED_NAM_XUAT_BAN);
         assertThat(testBook.getNhaXuatBan()).isEqualTo(UPDATED_NHA_XUAT_BAN);
+        assertThat(testBook.getTenTacgia()).isEqualTo(UPDATED_TEN_TACGIA);
     }
 
     @Test

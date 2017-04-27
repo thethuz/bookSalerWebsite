@@ -3,7 +3,7 @@
     <h2><span>Author</span> {{vm.author.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
+    <!-- <dl class="dl-horizontal jh-entity-details">
         <dt><span>Ten Tacgia</span></dt>
         <dd>
             <span>{{vm.author.tenTacgia}}</span>
@@ -12,7 +12,11 @@
         <dd>
             <span>{{vm.author.introduce}}</span>
         </dd>
-    </dl>
+        <dt><span>Ngay Sinh</span></dt>
+        <dd>
+            <span>{{vm.author.ngaySinh | date:'mediumDate'}}</span>
+        </dd>
+    </dl> -->
 
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
@@ -24,4 +28,96 @@
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-xs hidden-sm"> Edit</span>
     </button>
+</div>
+
+<div class="row">
+
+    <div class="col s10 offset-s1">
+        <div class="row">
+            <div class="col s12 center">
+                <img src="image/emma.jpg" class="responsive-img">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1" style="font-size: 20px">
+               <p><span class="indigo-text text-darken-2">
+                  Ho ten day du :
+               </span>
+               {{vm.author.tenTacgia}}</p>
+               <p><span class="indigo-text text-darken-2">
+                 ngay sinh :
+               </span>
+               {{vm.author.introduce}}</p>
+               <p><span class="indigo-text text-darken-2">
+                 <!-- Noi o :
+               </span>
+               hollywood</p> -->
+               <p><span class="indigo-text text-darken-2">
+                 gioi thieu ve tac gia :
+               </span>
+                {{vm.author.introduce}}
+              </p>
+            <p><span class="indigo-text text-darken-2">Cac tac pham : </span> </p>
+            <div>
+                <div class="row">
+                           <div class="col s3">
+                                <div class="row">
+                                     <div class="col s12">
+                                           <div class="card hoverable">
+                                             <div class="card-image waves-effect waves-block waves-light">
+                                               <img class="activator" src="image/hoanguc.jpg">
+                                             </div>
+                                             <div class="card-content">
+                                               <a href="ChiTietSach.html"><span class="card-title activator grey-text text-darken-4">Hoa nguc<i class="material-icons right">more_vert</i></span></a>
+                                               <p><a href="#">Danny Brown</a></p>
+                                             </div>
+                                             <div class="card-reveal">
+                                               <span class="card-title grey-text text-darken-4">Gioi thieu sach<i class="material-icons right">close</i></span>
+                                               <p>Hoa nguc</p>
+                                               <p>Tac gia : Danny Brown</p>
+                                               <p>Nam xuat ban : 2017</p>
+                                               <p>NXB Dai hoc BKHN</p>
+                                               <p>The loai : trinh tham ,vien tuong</p>
+                                             </div>
+                                           </div>
+                                     </div>
+
+                                </div>
+
+                           </div>
+
+                           <div class="col s3">
+                                <div class="row">
+                                     <div class="col s12">
+                                           <div class="card hoverable">
+                                             <div class="card-image waves-effect waves-block waves-light">
+                                               <img class="activator" src="image/hoanguc.jpg">
+                                             </div>
+                                             <div class="card-content">
+                                               <a href="ChiTietSach.html"><span class="card-title activator grey-text text-darken-4">Hoa nguc<i class="material-icons right">more_vert</i></span></a>
+                                               <p><a href="#">Danny Brown</a></p>
+                                             </div>
+                                             <div class="card-reveal">
+                                               <span class="card-title grey-text text-darken-4">Gioi thieu sach<i class="material-icons right">close</i></span>
+                                               <p>Hoa nguc</p>
+                                               <p>Tac gia : Danny Brown</p>
+                                               <p>Nam xuat ban : 2017</p>
+                                               <p>NXB Dai hoc BKHN</p>
+                                               <p>The loai : trinh tham ,vien tuong</p>
+                                             </div>
+                                           </div>
+                                     </div>
+
+                                </div>
+
+                           </div>
+
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
 </div>

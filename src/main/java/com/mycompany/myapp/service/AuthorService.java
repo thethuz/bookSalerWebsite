@@ -18,9 +18,9 @@ import java.util.List;
 public class AuthorService {
 
     private final Logger log = LoggerFactory.getLogger(AuthorService.class);
-
+    
     @Inject
-    private AuthorRepository authorRepository;//=new AuthorRepository();
+    private AuthorRepository authorRepository;
 
     /**
      * Save a author.
@@ -36,7 +36,7 @@ public class AuthorService {
 
     /**
      *  Get all the authors.
-     *
+     *  
      *  @param pageable the pagination information
      *  @return the list of entities
      */

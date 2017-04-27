@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -28,6 +29,9 @@ public class Author implements Serializable {
     @Size(max = 2000)
     @Field("introduce")
     private String introduce;
+
+    @Field("ngay_sinh")
+    private LocalDate ngaySinh;
 
     public String getId() {
         return id;
@@ -63,6 +67,19 @@ public class Author implements Serializable {
         this.introduce = introduce;
     }
 
+    public LocalDate getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public Author ngaySinh(LocalDate ngaySinh) {
+        this.ngaySinh = ngaySinh;
+        return this;
+    }
+
+    public void setNgaySinh(LocalDate ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -89,6 +106,7 @@ public class Author implements Serializable {
             "id=" + id +
             ", tenTacgia='" + tenTacgia + "'" +
             ", introduce='" + introduce + "'" +
+            ", ngaySinh='" + ngaySinh + "'" +
             '}';
     }
 }

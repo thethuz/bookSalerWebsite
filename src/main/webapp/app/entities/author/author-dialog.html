@@ -45,6 +45,16 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" for="field_ngaySinh">Ngay Sinh</label>
+                <div class="input-group">
+                    <input id="field_ngaySinh" type="text" class="form-control" name="ngaySinh" uib-datepicker-popup="{{dateformat}}" ng-model="vm.author.ngaySinh" is-open="vm.datePickerOpenStatus.ngaySinh"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('ngaySinh')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
 
     </div>
     <div class="modal-footer">

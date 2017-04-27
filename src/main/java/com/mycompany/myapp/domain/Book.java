@@ -65,6 +65,10 @@ public class Book implements Serializable {
     @Field("nha_xuat_ban")
     private String nhaXuatBan;
 
+    @Size(max = 150)
+    @Field("ten_tacgia")
+    private String tenTacgia;
+
     public String getId() {
         return id;
     }
@@ -216,6 +220,19 @@ public class Book implements Serializable {
         this.nhaXuatBan = nhaXuatBan;
     }
 
+    public String getTenTacgia() {
+        return tenTacgia;
+    }
+
+    public Book tenTacgia(String tenTacgia) {
+        this.tenTacgia = tenTacgia;
+        return this;
+    }
+
+    public void setTenTacgia(String tenTacgia) {
+        this.tenTacgia = tenTacgia;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -251,6 +268,7 @@ public class Book implements Serializable {
             ", tacGia='" + tacGia + "'" +
             ", namXuatBan='" + namXuatBan + "'" +
             ", nhaXuatBan='" + nhaXuatBan + "'" +
+            ", tenTacgia='" + tenTacgia + "'" +
             '}';
     }
 }

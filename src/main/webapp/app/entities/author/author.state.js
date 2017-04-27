@@ -117,6 +117,7 @@
                             return {
                                 tenTacgia: null,
                                 introduce: null,
+                                ngaySinh: null,
                                 id: null
                             };
                         }

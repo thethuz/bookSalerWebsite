@@ -157,6 +157,18 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tenTacgia">Ten Tacgia</label>
+            <input type="text" class="form-control" name="tenTacgia" id="field_tenTacgia"
+                    ng-model="vm.book.tenTacgia"
+                    ng-maxlength="150" />
+            <div ng-show="editForm.tenTacgia.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tenTacgia.$error.maxlength">
+                    This field cannot be longer than 150 characters.
+                </p>
+            </div>
+        </div>
 
     </div>
     <div class="modal-footer">
