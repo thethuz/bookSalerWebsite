@@ -56,5 +56,6 @@
                 search: vm.currentSearch
             });
         }
+        function addToCart(){console.log('thamso');}
     }
 })();

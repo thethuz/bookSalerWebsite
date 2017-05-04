@@ -1,80 +1,90 @@
 <div>
-    <h2>Books</h2>
+
     <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="book.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span >
-                        Create new Book
-                    </span>
-                </button>
+    <div class="row">
+        <div class="col s10 offset-s1">
+           <div class="row">
+            <div ng-repeat="book in vm.books track by book.id">
+              <div>
+                <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
+                <!-- <div>{{book.tenSach}}</div> -->
+                <div>{{book.trangThaiConHang}}</div>
+                <div>{{book.tomTat}}</div>
+                <!-- <div>{{book.rating}}</div> -->
+                <!-- <div>{{book.anhDaiDien}}</div> -->
+                <div>{{book.tag}}</div>
+                <div>{{book.giaCu}}</div>
+                <div>{{book.giaMoi}}</div>
+                <!-- <div>{{book.tacGia}}</div> -->
+                <!-- <div>{{book.namXuatBan}}</div> -->
+                <!-- <div>{{book.nhaXuatBan}}</div> -->
+                <!--  -->
+                <div class="col s3">
+                     <div class="row">
+                          <div class="col s12">
+                                <div class="card hoverable">
+                                  <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src={{book.anhDaiDien}}>
+                                  </div>
+                                  <div class="card-content">
+                                    <div>{{book.rating}}</div>
+                                  </div>
+                                  <div class="card-content">
+                                    <a href="ChiTietSach.html"><span class="card-title activator grey-text text-darken-4">{{book.tenSach}}
+                                      <!-- <i class="material-icons right">more_vert</i> -->
+                                    </span></a>
+                                    <p><a href="#/author/{{book.tacGia}}"></a>{{book.tenTacgia}}</p>
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">{{book.tomTat}}<i class="material-icons right">close</i></span>
+                                    <p>{{book.tenSach}}/p>
+                                    <p>{{book.tenTacgia}}</p>
+                                    <p>{{book.namXuatBan}}</p>
+                                    <p>{{book.nhaXuatBan}}</p>
+                                    <p>{{book.tag}}</p>
+                                  </div>
+                                </div>
+                          </div>
+                          <!-- <button type="button" href="#/book/addtocart/{id:book.id}" class="btn btn-primary">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                              <span class="hidden-xs hidden-sm"> Add</span>
+                          </button> -->
+                          <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
+                              <span class="glyphicon glyphicon-pencil"></span>
+                              <span class="hidden-xs hidden-sm"> Chi tiet</span>
+                          </a>
+
+                     </div>
+
+                     <td class="text-right">
+                         <!-- <div class="btn-group flex-btn-group-container">
+                             <button type="submit"
+                                     ui-sref="book-detail({id:book.id})"
+                                     class="btn btn-info btn-sm">
+                                 <span class="glyphicon glyphicon-eye-open"></span>
+                                 <span class="hidden-xs hidden-sm"></span>
+                             </button>
+                             <button type="submit"
+                                     ui-sref="book.edit({id:book.id})"
+                                     class="btn btn-primary btn-sm">
+                                 <span class="glyphicon glyphicon-pencil"></span>
+                                 <span class="hidden-xs hidden-sm"></span>
+                             </button>
+                             <button type="submit"
+                                     ui-sref="book.delete({id:book.id})"
+                                     class="btn btn-danger btn-sm">
+                                 <span class="glyphicon glyphicon-remove-circle"></span>
+                                 <span class="hidden-xs hidden-sm"></span>
+                             </button>
+                         </div> -->
+                     </td>
+                </div>
+                <!--  -->
+
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tenSach"><span>Ten Sach</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="trangThaiConHang"><span>Trang Thai Con Hang</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tomTat"><span>Tom Tat</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="rating"><span>Rating</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="anhDaiDien"><span>Anh Dai Dien</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tag"><span>Tag</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="giaCu"><span>Gia Cu</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="giaMoi"><span>Gia Moi</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tacGia"><span>Tac Gia</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="namXuatBan"><span>Nam Xuat Ban</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="nhaXuatBan"><span>Nha Xuat Ban</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tenTacgia"><span>Ten Tacgia</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="book in vm.books track by book.id">
-                    <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
-                    <td>{{book.tenSach}}</td>
-                    <td>{{book.trangThaiConHang}}</td>
-                    <td>{{book.tomTat}}</td>
-                    <td>{{book.rating}}</td>
-                    <td>{{book.anhDaiDien}}</td>
-                    <td>{{book.tag}}</td>
-                    <td>{{book.giaCu}}</td>
-                    <td>{{book.giaMoi}}</td>
-                    <td>{{book.tacGia}}</td>
-                    <td>{{book.namXuatBan}}</td>
-                    <td>{{book.nhaXuatBan}}</td>
-                    <td>{{book.tenTacgia}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="book-detail({id:book.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="book.edit({id:book.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="book.delete({id:book.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
         <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>

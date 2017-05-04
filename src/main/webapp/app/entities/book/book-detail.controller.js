@@ -17,5 +17,10 @@
             vm.book = result;
         });
         $scope.$on('$destroy', unsubscribe);
+
+        vm.addToCart = function (){
+          console.log(vm.number);
+          console.log(vm.book.id);
+        }
     }
 })();

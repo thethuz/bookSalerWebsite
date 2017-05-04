@@ -1,8 +1,8 @@
 
 <div>
-    <h2><span>Book</span> {{vm.book.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
+    <!-- <h2><span>Book</span> {{vm.book.id}}</h2>
+    <!-- <hr> -->
+    <!--<jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
         <dt><span>Ten Sach</span></dt>
         <dd>
@@ -52,9 +52,65 @@
         <dd>
             <span>{{vm.book.tenTacgia}}</span>
         </dd>
-    </dl>
+    </dl> -->
 
-    <button type="submit"
+    <div>
+       <div class="row">
+           <div class="col s4 offset-s1" >
+               <img src="{{vm.book.anhDaiDien}}" class="responsive-img materialboxed" data-caption="Mat ma davinci" style="min-width: 250px">
+           </div>
+           <div class="col s7" >
+               <div>
+                   <h3 class="flow-text" style="font-weight: normal;" >{{vm.book.tenSach}}</h3>
+               </div>
+               <p class="divider"></p>
+               <p><a href="#Gioithieusach" class="red-text"></a></p>
+               <p>Tinh trang : <span class="red-text">{{vm.book.trangThaiConHang}}</span>
+               <div class="row">
+
+                   <!-- <div class="col s2">
+                       <a class="waves-effect waves-light btn-large red"><i class="material-icons">favorite</i></a>
+                   </div> -->
+                   <div>{{vm.book.tag}}</div>
+                   <div>{{vm.book.giaCu}}</div>
+                   <div>{{vm.book.giaMoi}}</div>
+                   <div>{{vm.book.tacGia}}</div>
+                   <div>{{vm.book.namXuatBan}}</div>
+                   <div>{{vm.book.nhaXuatBan}}</div>
+                   <div>{{vm.book.tenTacgia}}</div>
+                   <div>{{vm.book.tomTat}}</div>
+
+                   <form class="form-inline "  ng-submit="vm.addToCart()" style="text-align:center; width: 100%">
+                     <div class="col s2 offset-s1">
+                         <p>So luong : </p>
+                     </div>
+                     <div class="col s2">
+                         <input type="number"  ng-model="vm.number" name="qty" id="" max="5" min="1" value="1" title="Số lượng">
+                     </div>
+                     <button class="btn btn-success" type="submit" style=" background-color: #28a828; height: 40px;">Thêm vào giỏ </button>
+                   </form>
+
+               </div>
+               </p>
+           </div>
+           <div>
+        <p><span><a ></a></span></p>
+        <!-- <span>{{vm.book.tomTat}}</span> -->
+
+        <!-- <span>{{vm.book.anhDaiDien}}</span> -->
+
+        <!-- <div>{{vm.book.tag}}</div> -->
+        <!-- <div>{{vm.book.giaCu}}</div> -->
+        <!-- <div>{{vm.book.giaMoi}}</div> -->
+        <!-- <div>{{vm.book.tacGia}}</div> -->
+        <!-- <div>{{vm.book.namXuatBan}}</div> -->
+        <!-- <div>{{vm.book.nhaXuatBan}}</div> -->
+        <!-- <div>{{vm.book.tenTacgia}}</div> -->
+    </div>
+
+
+
+    <!-- <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
@@ -63,5 +119,5 @@
     <button type="button" ui-sref="book-detail.edit({id:vm.book.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-xs hidden-sm"> Edit</span>
-    </button>
+    </button> -->
 </div>
