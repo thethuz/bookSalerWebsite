@@ -50,6 +50,31 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "3000"
+        },
+        {
+            "fieldName": "user_id",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "cartid",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "daGiaoTien",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "daGiaoHang",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
         }
     ],
     "dto": "no",

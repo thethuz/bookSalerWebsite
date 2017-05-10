@@ -12,4 +12,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface CartChiTietRepository extends MongoRepository<CartChiTiet,String> {
   public List<CartChiTiet> findAllByCartId(String cartId);
   public CartChiTiet findByCartIdAndBookId(String cartId, String BookId);
+  // public List<CartChiTiet> findAllByCartId
 }

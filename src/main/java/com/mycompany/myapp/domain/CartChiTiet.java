@@ -31,6 +31,10 @@ public class CartChiTiet implements Serializable {
     @Field("cart_id")
     private String cartId;
 
+    // @Size(max = 200)
+    @Field("book_name")
+    private String bookName;
+
     public String getId() {
         return id;
     }
@@ -90,6 +94,19 @@ public class CartChiTiet implements Serializable {
     public void setCartId(String cartId) {
         this.cartId = cartId;
     }
+    public String getBookName() {
+        return bookName;
+    }
+
+    public CartChiTiet bookName(String bookName) {
+        this.bookName = bookName;
+        return this;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -119,6 +136,8 @@ public class CartChiTiet implements Serializable {
             ", numberOfBook='" + numberOfBook + "'" +
             ", thanhtien='" + thanhtien + "'" +
             ", cartId='" + cartId + "'" +
+            ", bookName='" + bookName + "'" +
+
             '}';
     }
 }

@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Cart;
+import com.mycompany.myapp.service.CartService;
 
 import com.mycompany.myapp.repository.CartRepository;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
@@ -32,16 +33,13 @@ import java.util.Optional;
 public class CartResource {
 
     private final Logger log = LoggerFactory.getLogger(CartResource.class);
-        
+
     @Inject
     private CartRepository cartRepository;
-
+    @Inject
+    private CartService cartService;
     /**
      * POST  /carts : Create a new cart.
-     *
-     * @param cart the cart to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new cart, or with status 400 (Bad Request) if the cart has already an ID
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/carts")
     @Timed
@@ -56,14 +54,21 @@ public class CartResource {
             .body(result);
     }
 
+    @GetMapping("/carts/byUser")
+    @Timed
+    public ResponseEntity<Cart> getCart() {
+        log.debug("REST request to get Cart by User: {}");
+        // Cart cart = cartRepository.findOne(id);
+        Cart cart=cartService.findByCurrentUser();
+        return Optional.ofNullable(cart)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     /**
      * PUT  /carts : Updates an existing cart.
-     *
-     * @param cart the cart to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated cart,
-     * or with status 400 (Bad Request) if the cart is not valid,
-     * or with status 500 (Internal Server Error) if the cart couldnt be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/carts")
     @Timed
@@ -80,10 +85,6 @@ public class CartResource {
 
     /**
      * GET  /carts : get all the carts.
-     *
-     * @param pageable the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of carts in body
-     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
     @GetMapping("/carts")
     @Timed
@@ -97,9 +98,6 @@ public class CartResource {
 
     /**
      * GET  /carts/:id : get the "id" cart.
-     *
-     * @param id the id of the cart to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the cart, or with status 404 (Not Found)
      */
     @GetMapping("/carts/{id}")
     @Timed

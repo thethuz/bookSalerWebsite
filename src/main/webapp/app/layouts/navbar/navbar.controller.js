@@ -20,6 +20,7 @@
 
         vm.login = login;
         vm.logout = logout;
+        vm.viewCart = viewCart;
         vm.toggleNavbar = toggleNavbar;
         vm.collapseNavbar = collapseNavbar;
         vm.$state = $state;
@@ -33,6 +34,9 @@
             collapseNavbar();
             Auth.logout();
             $state.go('home');
+        }
+        function viewCart(){
+          $state.go('cart-chi-tiet');
         }
 
         function toggleNavbar() {

@@ -21,6 +21,13 @@
                     </a>
                 </li>
                 <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <!-- Entity -->
+                <li ui-sref-active="active" ng-switch-when="true">
+                    <a href="" ng-click="vm.viewCart()" id="viewCart">
+                        <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                        <span>Xem giỏ hàng</span>
+                    </a>
+                </li>
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
@@ -65,6 +72,7 @@
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
+                <!-- Sach -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                         <span>
@@ -109,6 +117,7 @@
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
+                <!-- Tac gia -->
                 <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer">
                   <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
                       <span>
@@ -135,6 +144,7 @@
                   </ul>
 
                 </li>
+                <!-- Account -->
                 <li ng-class="{active: vm.$state.includes('account')}" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
                         <span>
@@ -184,6 +194,7 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Admin -->
                 <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
                         <span>

@@ -21,6 +21,14 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "bookName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "200"
         }
     ],
     "dto": "no",

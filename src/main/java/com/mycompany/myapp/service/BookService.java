@@ -25,12 +25,17 @@ import java.util.List;
 public class BookService {
 
     private final Logger log = LoggerFactory.getLogger(BookService.class);
+    @Inject
     private PersistentTokenRepository persistentTokenRepository;
     @Inject
     private BookRepository bookRepository;
+    @Inject
     private CartRepository cartRepository;
+    @Inject
     private CartChiTietRepository cartChiTietRepository;
+    @Inject
     private CartChiTietService cartChiTietService;
+    @Inject
     private UserService userService;
     /**
      * Save a book.
@@ -51,6 +56,7 @@ public class BookService {
     }
     public String getIdCurrentUserLogin(){
       String id=userService.getUserWithAuthorities().getId();
+      System.out.println("=============="+id);
       return id;
     }
     public List<Book> findAllByTacGia(String tacGia){
@@ -61,25 +67,34 @@ public class BookService {
     public int addBookToCart(Book book){
       String userId=getIdCurrentUserLogin();
       log.debug("request to add Book to Cart");
-      if(!book.isTrangThaiConHang()){
+      if(book.isTrangThaiConHang()){
         return 1; //Het hang
       }
       // persistentTokenRepository.findByUser();
       Cart cart=cartRepository.findByUserIdAndStatusTrue(userId);
         if(cart!=null){
+          System.out.println("not null");
           CartChiTiet cartChiTiet=cartChiTietRepository.findByCartIdAndBookId(cart.getId(),book.getId());
           if(cartChiTiet!=null){
+            System.out.println("cct not null");
             cartChiTiet.setNumberOfBook(cartChiTiet.getNumberOfBook()+1);
+            cartChiTiet.setBookName(book.getTenSach());
             cartChiTiet.setThanhtien(book.getGiaMoi()*cartChiTiet.getNumberOfBook());
+            System.out.println(cartChiTiet);
             cartChiTietService.save(cartChiTiet);
           }else{
-            cartChiTiet.setBookId(book.getId());
-            cartChiTiet.setCartId(cart.getId());
-            cartChiTiet.setNumberOfBook(1);
-            cartChiTiet.setThanhtien(book.getGiaMoi()*cartChiTiet.getNumberOfBook());
-            cartChiTietService.save(cartChiTiet);
+            System.out.println("ctc  null");
+            CartChiTiet cartct1=new CartChiTiet();
+            cartct1.setBookId(book.getId());
+            cartct1.setCartId(cart.getId());
+            cartct1.setNumberOfBook(1);
+            cartct1.setBookName(book.getTenSach());
+            cartct1.setThanhtien(book.getGiaMoi()*cartct1.getNumberOfBook());
+            cartChiTietService.save(cartct1);
           }
         }else if(cart==null){
+          System.out.println("null");
+
           Cart cart1=new Cart();
           cart1.setUserId(userId);
           cart1.setStatus(true);
@@ -88,14 +103,18 @@ public class BookService {
           cartct1.setCartId(cart1.getId());
           cartct1.setBookId(book.getId());
           cartct1.setNumberOfBook(1);
+          cartct1.setThanhtien(book.getGiaMoi()*cartct1.getNumberOfBook());
+          cartct1.setBookName(book.getTenSach());
+          cartChiTietRepository.save(cartct1);
         }
       return 0;
     }
-    
+
     public int subBookFromCart(Book book){
       String userId=getIdCurrentUserLogin();
       log.debug("request to remove Book from Cart");
-      if(!book.isTrangThaiConHang()){
+      if(book.isTrangThaiConHang()){
+        // Da het hang
         return 1;
       }
       Cart cart=checkCartExist(userId);
@@ -103,16 +122,22 @@ public class BookService {
         //create Cart
         //create CartChiTiet
         //return False
-        return 1;
+        return 3;
       }
       else if(cart!=null){
         CartChiTiet cartct= checkCartChiTietExist(cart.getId(),book.getId());
         if(cartct==null) return 2;
         if(cartct.getNumberOfBook()<=1){
-          cartRepository.delete(cartct.getId());
+          System.out.println("deleted");
+          cartChiTietService.delete(cartct.getId());
+          return 0;
         }
-        else cartct.setNumberOfBook(cartct.getNumberOfBook()-1);
-        cartChiTietService.save(cartct);
+        else {
+          cartct.setNumberOfBook(cartct.getNumberOfBook()-1);
+          cartct.setThanhtien(book.getGiaMoi()*cartct.getNumberOfBook());
+          System.out.println(cartct);
+          cartChiTietService.save(cartct);
+        }
         //
       }
       return 0;

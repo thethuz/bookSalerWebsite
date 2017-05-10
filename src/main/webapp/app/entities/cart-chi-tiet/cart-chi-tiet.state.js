@@ -117,8 +117,9 @@
                             return {
                                 bookId: null,
                                 numberOfBook: null,
-                                thanhtien: null,
+                                thanhTien: null,
                                 cartId: null,
+                                bookName: null,
                                 id: null
                             };
                         }

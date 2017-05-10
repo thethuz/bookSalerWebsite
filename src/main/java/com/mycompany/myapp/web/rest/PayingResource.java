@@ -32,6 +32,7 @@ public class PayingResource {
 
     @Inject
     private PayingRepository payingRepository;
+    @Inject
     private PayingService payingService;
     /**
      * POST  /payings : Create a new paying.
@@ -40,7 +41,7 @@ public class PayingResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new paying, or with status 400 (Bad Request) if the paying has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PostMapping("/payings")
+    @PutMapping("/payings")
     @Timed
     public ResponseEntity<Paying> createPaying(@Valid @RequestBody Paying paying) throws URISyntaxException {
         log.debug("REST request to save Paying : {}", paying);
@@ -52,15 +53,29 @@ public class PayingResource {
             .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId().toString()))
             .body(result);
     }
-    @GetMapping("/prefixPaying")
+    @GetMapping("/payings/prefix")
     @Timed
     public ResponseEntity<Paying> getPrefixPaying() throws URISyntaxException{
       log.debug("REST request to get Prefix-Paying");
       Paying result = payingService.getPrefix();
+      if(result==null)
+      return ResponseEntity.created(new URI("/api/payings/" + "null"))
+          .headers(HeaderUtil.createEntityCreationAlert("paying", "null"))
+          .body(null);
+
       return ResponseEntity.created(new URI("/api/payings/" + result.getId()))
-          .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId().toString()))
+          .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId()))
           .body(result);
     }
+    // @GetMapping("/paying/getBill")
+    // @Timed
+    // public ResponseEntity<Paying> getBill(@Valid @RequestBody Paying paying) throws URISyntaxException{
+    //   log.debug("REST request to get Prefix-Paying");
+    //   // Paying result = payingService.getPrefix();
+    //   return ResponseEntity.created(new URI("/api/payings/" + result.getId()))
+    //       .headers(HeaderUtil.createEntityCreationAlert("paying", result.getId().toString()))
+    //       .body(result);
+    // }
 
     /**
      * PUT  /payings : Updates an existing paying.
@@ -71,20 +86,20 @@ public class PayingResource {
      * or with status 500 (Internal Server Error) if the paying couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-     /*
+
     @PutMapping("/payings")
     @Timed
     public ResponseEntity<Paying> updatePaying(@Valid @RequestBody Paying paying) throws URISyntaxException {
         log.debug("REST request to update Paying : {}", paying);
         if (paying.getId() == null) {
-            return createPaying(paying);
+            return getPrefixPaying();
         }
         Paying result = payingRepository.save(paying);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("paying", paying.getId().toString()))
             .body(result);
     }
-    */
+
 
     /**
      * GET  /payings : get all the payings.

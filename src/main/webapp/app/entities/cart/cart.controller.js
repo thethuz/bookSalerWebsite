@@ -5,9 +5,9 @@
         .module('bookManagementApp')
         .controller('CartController', CartController);
 
-    CartController.$inject = ['$scope', '$state', 'Cart', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    CartController.$inject = ['$scope', '$state', 'Cart', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams','$resource'];
 
-    function CartController ($scope, $state, Cart, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function CartController ($scope, $state, Cart, ParseLinks, AlertService, paginationConstants, pagingParams,$resource) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -17,7 +17,7 @@
         vm.itemsPerPage = paginationConstants.itemsPerPage;
 
         loadAll();
-
+        loadCartByUser();
         function loadAll () {
             Cart.query({
                 page: pagingParams.page - 1,
@@ -42,6 +42,11 @@
                 AlertService.error(error.data.message);
             }
         }
+// 
+        // function loadCartByUser(){
+        //
+        //   var Cart=$resource()
+        // }
 
         function loadPage(page) {
             vm.page = page;

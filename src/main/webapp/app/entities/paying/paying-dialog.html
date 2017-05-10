@@ -13,17 +13,29 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.paying.id" readonly />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="control-label" for="field_price">Price</label>
             <input type="text" class="form-control" name="price" id="field_price"
                     ng-model="vm.paying.price"
                      />
-        </div>
-        <div class="form-group">
+        </div> -->
+        <div>{{vm.paying.price}}</div>
+        <!-- <div class="form-group">
             <label class="control-label" for="field_priceWithVAT">Price With VAT</label>
             <input type="text" class="form-control" name="priceWithVAT" id="field_priceWithVAT"
                     ng-model="vm.paying.priceWithVAT"
                      />
+        </div> -->
+
+        <div>{{vm.paying.priceWithVAT}}</div>
+        <div>
+          {{vm.paying.chiTietGiaoDich}}
+        </div>
+        <div>
+          {{vm.paying.user_id}}
+        </div>
+        <div>
+          {{vm.paying.cartid}}
         </div>
         <div class="form-group">
             <label class="control-label" for="field_phuongThucThanhToan">Phuong Thuc Thanh Toan</label>
@@ -47,6 +59,12 @@
                     ng-show="editForm.hoten.$error.maxlength">
                     This field cannot be longer than 100 characters.
                 </p>
+            </div>
+            <div ng-show="editForm.hoten.$invalid">
+              <p class="help-block"
+                  ng-show="editForm.hoten.$error.required">
+                  This field is required.
+              </p>
             </div>
         </div>
         <div class="form-group">
@@ -73,7 +91,8 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
+
+        <!-- <div class="form-group">
             <label class="control-label" for="field_chiTietGiaoDich">Chi Tiet Giao Dich</label>
             <input type="text" class="form-control" name="chiTietGiaoDich" id="field_chiTietGiaoDich"
                     ng-model="vm.paying.chiTietGiaoDich"
@@ -84,7 +103,45 @@
                     This field cannot be longer than 3000 characters.
                 </p>
             </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+            <label class="control-label" data-translate="bookManagementApp.paying.user_id" for="field_user_id">User Id</label>
+            <input type="text" class="form-control" name="user_id" id="field_user_id"
+                    ng-model="vm.paying.user_id"
+                    ng-maxlength="100" />
+            <div ng-show="editForm.user_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.user_id.$error.maxlength">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+            <label class="control-label" for="field_cartid">Cartid</label>
+            <input type="text" class="form-control" name="cartid" id="field_cartid"
+                    ng-model="vm.paying.cartid"
+                    ng-maxlength="100" />
+            <div ng-show="editForm.cartid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cartid.$error.maxlength">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div> -->
+        <!-- <div class="form-group">
+            <label class="control-label" for="field_daGiaoTien">Da Giao Tien</label>
+            <input type="checkbox" class="form-control" name="daGiaoTien" id="field_daGiaoTien"
+                    ng-model="vm.paying.daGiaoTien"
+                     />
         </div>
+        <div class="form-group">
+            <label class="control-label" for="field_daGiaoHang">Da Giao Hang</label>
+            <input type="checkbox" class="form-control" name="daGiaoHang" id="field_daGiaoHang"
+                    ng-model="vm.paying.daGiaoHang"
+                     />
+        </div> -->
 
     </div>
     <div class="modal-footer">

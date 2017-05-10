@@ -1,0 +1,115 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Book Management 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:1.4.2.RELEASE:run (default-cli) > test-compile @ book-management >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:copy-resources (default-resources) @ book-management ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ book-management ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ book-management ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.7.201606060606:prepare-agent (pre-unit-tests) @ book-management ---
+[INFO] argLine set to -javaagent:/home/thethu/.m2/repository/org/jacoco/org.jacoco.agent/0.7.7.201606060606/org.jacoco.agent-0.7.7.201606060606-runtime.jar=destfile=/home/thethu/cnWeb-btl/target/test-results/coverage/jacoco/jacoco.exec -Djava.security.egd=file:/dev/./urandom -Xmx256m
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ book-management ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 101 source files to /home/thethu/cnWeb-btl/target/classes
+[INFO] /home/thethu/cnWeb-btl/src/main/java/com/mycompany/myapp/config/dbmigrations/InitialSetupMigration.java: /home/thethu/cnWeb-btl/src/main/java/com/mycompany/myapp/config/dbmigrations/InitialSetupMigration.java uses unchecked or unsafe operations.
+[INFO] /home/thethu/cnWeb-btl/src/main/java/com/mycompany/myapp/config/dbmigrations/InitialSetupMigration.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ book-management ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:testCompile (default-testCompile) @ book-management ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:1.4.2.RELEASE:run (default-cli) < test-compile @ book-management <<<
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:1.4.2.RELEASE:run (default-cli) @ book-management ---
+[INFO] Attaching agents: []
+
+        ██  ██    ██  ████████  ███████    ██████  ████████  ████████  ███████
+        ██  ██    ██     ██     ██    ██  ██          ██     ██        ██    ██
+        ██  ████████     ██     ███████    █████      ██     ██████    ███████
+  ██    ██  ██    ██     ██     ██             ██     ██     ██        ██   ██
+   ██████   ██    ██  ████████  ██        ██████      ██     ████████  ██    ██
+
+:: JHipster 🤓  :: Running Spring Boot 1.4.2.RELEASE ::
+:: http://jhipster.github.io ::
+
+2017-05-07 18:20:26.487  INFO 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : Starting BookManagementApp on pc with PID 14099 (/home/thethu/cnWeb-btl/target/classes started by thethu in /home/thethu/cnWeb-btl)
+2017-05-07 18:20:26.490 DEBUG 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+2017-05-07 18:20:26.491  INFO 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : The following profiles are active: swagger,dev
+2017-05-07 18:20:26.729 DEBUG 14099 --- [kground-preinit] org.jboss.logging                        : Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-05-07 18:20:31.037 DEBUG 14099 --- [  restartedMain] c.m.myapp.config.AsyncConfiguration      : Creating Async Task Executor
+2017-05-07 18:20:31.638 DEBUG 14099 --- [  restartedMain] c.m.myapp.config.MetricsConfiguration    : Registering JVM gauges
+2017-05-07 18:20:31.739 DEBUG 14099 --- [  restartedMain] c.m.myapp.config.MetricsConfiguration    : Initializing Metrics JMX reporting
+2017-05-07 18:20:33.069  WARN 14099 --- [  restartedMain] io.undertow.websockets.jsr               : UT026009: XNIO worker was not set on WebSocketDeploymentInfo, the default worker will be used
+2017-05-07 18:20:33.070  WARN 14099 --- [  restartedMain] io.undertow.websockets.jsr               : UT026010: Buffer pool was not set on WebSocketDeploymentInfo, the default pool will be used
+2017-05-07 18:20:34.025  INFO 14099 --- [  restartedMain] c.mycompany.myapp.config.WebConfigurer   : Web application configuration, using profiles: [swagger, dev]
+2017-05-07 18:20:34.025 DEBUG 14099 --- [  restartedMain] c.mycompany.myapp.config.WebConfigurer   : Initializing Metrics registries
+2017-05-07 18:20:34.031 DEBUG 14099 --- [  restartedMain] c.mycompany.myapp.config.WebConfigurer   : Registering Metrics Filter
+2017-05-07 18:20:34.031 DEBUG 14099 --- [  restartedMain] c.mycompany.myapp.config.WebConfigurer   : Registering Metrics Servlet
+2017-05-07 18:20:34.067  INFO 14099 --- [  restartedMain] c.mycompany.myapp.config.WebConfigurer   : Web application fully configured
+2017-05-07 18:20:34.154  INFO 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : Running with Spring profile(s) : [swagger, dev]
+2017-05-07 18:20:34.176 DEBUG 14099 --- [  restartedMain] c.m.myapp.config.CacheConfiguration      : No cache
+2017-05-07 18:20:40.710 DEBUG 14099 --- [  restartedMain] c.m.myapp.config.DatabaseConfiguration   : Configuring Mongobee
+2017-05-07 18:20:40.715  INFO 14099 --- [  restartedMain] com.github.mongobee.Mongobee             : Mongobee has started the data migration sequence..
+2017-05-07 18:20:40.761 DEBUG 14099 --- [  restartedMain] Mongobee dao                             : Index in collection dbchangelog was created
+2017-05-07 18:20:40.783 DEBUG 14099 --- [  restartedMain] org.reflections.Reflections              : going to scan these urls:
+file:/home/thethu/cnWeb-btl/target/classes/
+2017-05-07 18:20:40.825  INFO 14099 --- [  restartedMain] org.reflections.Reflections              : Reflections took 40 ms to scan 1 urls, producing 1 keys and 1 values 
+2017-05-07 18:20:40.844  INFO 14099 --- [  restartedMain] com.github.mongobee.Mongobee             : [ChangeSet: id=01-addAuthorities, author=initiator, changeLogClass=com.mycompany.myapp.config.dbmigrations.InitialSetupMigration, changeSetMethod=addAuthorities] passed over
+2017-05-07 18:20:40.846  INFO 14099 --- [  restartedMain] com.github.mongobee.Mongobee             : [ChangeSet: id=02-addUsers, author=initiator, changeLogClass=com.mycompany.myapp.config.dbmigrations.InitialSetupMigration, changeSetMethod=addUsers] passed over
+2017-05-07 18:20:40.846  INFO 14099 --- [  restartedMain] com.github.mongobee.Mongobee             : Mongobee has finished his job.
+2017-05-07 18:20:41.663 DEBUG 14099 --- [  restartedMain] c.m.m.c.apidoc.SwaggerConfiguration      : Starting Swagger
+2017-05-07 18:20:41.670 DEBUG 14099 --- [  restartedMain] c.m.m.c.apidoc.SwaggerConfiguration      : Started Swagger in 7 ms
+2017-05-07 18:20:43.901  INFO 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : Started BookManagementApp in 18.202 seconds (JVM running for 18.795)
+2017-05-07 18:20:43.902  INFO 14099 --- [  restartedMain] com.mycompany.myapp.BookManagementApp    : 
+----------------------------------------------------------
+	Application 'bookManagement' is running! Access URLs:
+	Local: 		http://localhost:8080
+	External: 	http://127.0.1.1:8080
+----------------------------------------------------------
+2017-05-07 18:21:00.557 DEBUG 14099 --- [  XNIO-2 task-1] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2017-05-07 18:21:00.557 DEBUG 14099 --- [ XNIO-2 task-29] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.web.rest.AccountResource.getAccount() with argument[s] = []
+2017-05-07 18:21:00.557 DEBUG 14099 --- [ XNIO-2 task-28] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.web.rest.BookResource.getBook() with argument[s] = [59017ab08c02e86f9da93653]
+2017-05-07 18:21:00.566 DEBUG 14099 --- [  XNIO-2 task-1] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.web.rest.ProfileInfoResource.getActiveProfiles() with result = com.mycompany.myapp.web.rest.ProfileInfoResource$ProfileInfoResponse@72f7b520
+2017-05-07 18:21:00.571 DEBUG 14099 --- [ XNIO-2 task-29] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.service.UserService.getUserWithAuthorities() with argument[s] = []
+2017-05-07 18:21:00.597 DEBUG 14099 --- [ XNIO-2 task-28] c.mycompany.myapp.web.rest.BookResource  : REST request to get Book : 59017ab08c02e86f9da93653
+2017-05-07 18:21:00.599 DEBUG 14099 --- [ XNIO-2 task-28] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.service.BookService.findOne() with argument[s] = [59017ab08c02e86f9da93653]
+2017-05-07 18:21:00.623 DEBUG 14099 --- [ XNIO-2 task-28] com.mycompany.myapp.service.BookService  : Request to get Book : 59017ab08c02e86f9da93653
+2017-05-07 18:21:00.686 DEBUG 14099 --- [ XNIO-2 task-28] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.service.BookService.findOne() with result = Book{id=59017ab08c02e86f9da93653, tenSach='sach1', trangThaiConHang='false', tomTat='hay', rating='5', anhDaiDien='localhost', tag='book', giaCu='100', giaMoi='200', tacGia='58feef66ad1d723be0bd8266', namXuatBan='2000', nhaXuatBan='nxb x', tenTacgia='null'}
+2017-05-07 18:21:00.691 DEBUG 14099 --- [ XNIO-2 task-28] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.web.rest.BookResource.getBook() with result = <200 OK,Book{id=59017ab08c02e86f9da93653, tenSach='sach1', trangThaiConHang='false', tomTat='hay', rating='5', anhDaiDien='localhost', tag='book', giaCu='100', giaMoi='200', tacGia='58feef66ad1d723be0bd8266', namXuatBan='2000', nhaXuatBan='nxb x', tenTacgia='null'},{}>
+2017-05-07 18:21:00.721 DEBUG 14099 --- [ XNIO-2 task-29] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.service.UserService.getUserWithAuthorities() with result = User{login='admin', firstName='admin', lastName='Administrator', email='admin@localhost', activated='true', langKey='en', activationKey='null'}
+2017-05-07 18:21:00.746 DEBUG 14099 --- [ XNIO-2 task-29] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.web.rest.AccountResource.getAccount() with result = <200 OK,UserDTO{login='admin', firstName='admin', lastName='Administrator', email='admin@localhost', activated=true, langKey='en', authorities=[ROLE_USER, ROLE_ADMIN]},{}>
+2017-05-07 18:21:02.421 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.web.rest.BookResource.addBookToCart() with argument[s] = [59017ab08c02e86f9da93653]
+2017-05-07 18:21:02.421 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.service.BookService.findOne() with argument[s] = [59017ab08c02e86f9da93653]
+2017-05-07 18:21:02.422 DEBUG 14099 --- [  XNIO-2 task-2] com.mycompany.myapp.service.BookService  : Request to get Book : 59017ab08c02e86f9da93653
+2017-05-07 18:21:02.425 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.service.BookService.findOne() with result = Book{id=59017ab08c02e86f9da93653, tenSach='sach1', trangThaiConHang='false', tomTat='hay', rating='5', anhDaiDien='localhost', tag='book', giaCu='100', giaMoi='200', tacGia='58feef66ad1d723be0bd8266', namXuatBan='2000', nhaXuatBan='nxb x', tenTacgia='null'}
+2017-05-07 18:21:02.426 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.service.BookService.addBookToCart() with argument[s] = [Book{id=59017ab08c02e86f9da93653, tenSach='sach1', trangThaiConHang='false', tomTat='hay', rating='5', anhDaiDien='localhost', tag='book', giaCu='100', giaMoi='200', tacGia='58feef66ad1d723be0bd8266', namXuatBan='2000', nhaXuatBan='nxb x', tenTacgia='null'}]
+2017-05-07 18:21:02.426 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Enter: com.mycompany.myapp.service.UserService.getUserWithAuthorities() with argument[s] = []
+2017-05-07 18:21:02.449 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.service.UserService.getUserWithAuthorities() with result = User{login='admin', firstName='admin', lastName='Administrator', email='admin@localhost', activated='true', langKey='en', activationKey='null'}
+==============user-2
+2017-05-07 18:21:02.453 DEBUG 14099 --- [  XNIO-2 task-2] com.mycompany.myapp.service.BookService  : request to add Book to Cart
+2017-05-07 18:21:02.453 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.service.BookService.addBookToCart() with result = 1
+2017-05-07 18:21:02.456 DEBUG 14099 --- [  XNIO-2 task-2] c.m.myapp.aop.logging.LoggingAspect      : Exit: com.mycompany.myapp.web.rest.BookResource.addBookToCart() with result = <201 Created,Book{id=59017ab08c02e86f9da93653, tenSach='sach1', trangThaiConHang='false', tomTat='hay', rating='5', anhDaiDien='localhost', tag='book', giaCu='100', giaMoi='200', tacGia='58feef66ad1d723be0bd8266', namXuatBan='2000', nhaXuatBan='nxb x', tenTacgia='null'},{Location=[/api/books/59017ab08c02e86f9da93653], X-bookManagementApp-alert=[A new book is created with identifier 59017ab08c02e86f9da93653], X-bookManagementApp-params=[59017ab08c02e86f9da93653]}>
+2017-05-07 18:21:22.645  INFO 14099 --- [       Thread-5] c.m.myapp.config.CacheConfiguration      : Closing Cache Manager
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:05 min
+[INFO] Finished at: 2017-05-07T18:21:23+07:00
+[INFO] Final Memory: 43M/310M
+[INFO] ------------------------------------------------------------------------

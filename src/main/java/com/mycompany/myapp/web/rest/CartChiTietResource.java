@@ -5,6 +5,7 @@ import com.mycompany.myapp.domain.CartChiTiet;
 import com.mycompany.myapp.service.CartChiTietService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
+import com.mycompany.myapp.service.CartService;
 
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -30,16 +31,12 @@ import java.util.Optional;
 public class CartChiTietResource {
 
     private final Logger log = LoggerFactory.getLogger(CartChiTietResource.class);
-        
+
     @Inject
     private CartChiTietService cartChiTietService;
 
     /**
      * POST  /cart-chi-tiets : Create a new cartChiTiet.
-     *
-     * @param cartChiTiet the cartChiTiet to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new cartChiTiet, or with status 400 (Bad Request) if the cartChiTiet has already an ID
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PostMapping("/cart-chi-tiets")
     @Timed
@@ -56,12 +53,6 @@ public class CartChiTietResource {
 
     /**
      * PUT  /cart-chi-tiets : Updates an existing cartChiTiet.
-     *
-     * @param cartChiTiet the cartChiTiet to update
-     * @return the ResponseEntity with status 200 (OK) and with body the updated cartChiTiet,
-     * or with status 400 (Bad Request) if the cartChiTiet is not valid,
-     * or with status 500 (Internal Server Error) if the cartChiTiet couldnt be updated
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @PutMapping("/cart-chi-tiets")
     @Timed
@@ -76,12 +67,21 @@ public class CartChiTietResource {
             .body(result);
     }
 
+    @GetMapping("cart-chi-tiets/getbyuser")
+    @Timed
+    public ResponseEntity<List<CartChiTiet>> getAllCartChiTietByUser(@ApiParam Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to get cart chi tiet by current user");
+        List<CartChiTiet> result = cartChiTietService.findAllByUser();
+
+        HttpHeaders headers = new HttpHeaders();
+        URI location=new URI("api/cart-chi-tiets/getbyuser");
+    		headers.setLocation(location);
+        System.out.println("Done");
+        return new ResponseEntity<>(result, headers, HttpStatus.OK);
+    }
     /**
      * GET  /cart-chi-tiets : get all the cartChiTiets.
-     *
-     * @param pageable the pagination information
-     * @return the ResponseEntity with status 200 (OK) and the list of cartChiTiets in body
-     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
     @GetMapping("/cart-chi-tiets")
     @Timed
@@ -95,9 +95,6 @@ public class CartChiTietResource {
 
     /**
      * GET  /cart-chi-tiets/:id : get the "id" cartChiTiet.
-     *
-     * @param id the id of the cartChiTiet to retrieve
-     * @return the ResponseEntity with status 200 (OK) and with body the cartChiTiet, or with status 404 (Not Found)
      */
     @GetMapping("/cart-chi-tiets/{id}")
     @Timed
@@ -113,9 +110,6 @@ public class CartChiTietResource {
 
     /**
      * DELETE  /cart-chi-tiets/:id : delete the "id" cartChiTiet.
-     *
-     * @param id the id of the cartChiTiet to delete
-     * @return the ResponseEntity with status 200 (OK)
      */
     @DeleteMapping("/cart-chi-tiets/{id}")
     @Timed
@@ -124,5 +118,6 @@ public class CartChiTietResource {
         cartChiTietService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("cartChiTiet", id.toString())).build();
     }
+    //
 
 }

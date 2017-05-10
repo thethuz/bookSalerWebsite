@@ -56,6 +56,18 @@ public class PayingResourceIntTest {
     private static final String DEFAULT_CHI_TIET_GIAO_DICH = "AAAAAAAAAA";
     private static final String UPDATED_CHI_TIET_GIAO_DICH = "BBBBBBBBBB";
 
+    private static final String DEFAULT_USER_ID = "AAAAAAAAAA";
+    private static final String UPDATED_USER_ID = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CARTID = "AAAAAAAAAA";
+    private static final String UPDATED_CARTID = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_DA_GIAO_TIEN = false;
+    private static final Boolean UPDATED_DA_GIAO_TIEN = true;
+
+    private static final Boolean DEFAULT_DA_GIAO_HANG = false;
+    private static final Boolean UPDATED_DA_GIAO_HANG = true;
+
     @Inject
     private PayingRepository payingRepository;
 
@@ -93,7 +105,11 @@ public class PayingResourceIntTest {
                 .hoten(DEFAULT_HOTEN)
                 .email(DEFAULT_EMAIL)
                 .diaChi(DEFAULT_DIA_CHI)
-                .chiTietGiaoDich(DEFAULT_CHI_TIET_GIAO_DICH);
+                .chiTietGiaoDich(DEFAULT_CHI_TIET_GIAO_DICH)
+                .user_id(DEFAULT_USER_ID)
+                .cartid(DEFAULT_CARTID)
+                .daGiaoTien(DEFAULT_DA_GIAO_TIEN)
+                .daGiaoHang(DEFAULT_DA_GIAO_HANG);
         return paying;
     }
 
@@ -125,6 +141,11 @@ public class PayingResourceIntTest {
         assertThat(testPaying.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testPaying.getDiaChi()).isEqualTo(DEFAULT_DIA_CHI);
         assertThat(testPaying.getChiTietGiaoDich()).isEqualTo(DEFAULT_CHI_TIET_GIAO_DICH);
+        assertThat(testPaying.getUser_id()).isEqualTo(DEFAULT_USER_ID);
+        assertThat(testPaying.getCartid()).isEqualTo(DEFAULT_CARTID);
+        assertThat(testPaying.isDaGiaoTien()).isEqualTo(DEFAULT_DA_GIAO_TIEN);
+        assertThat(testPaying.isDaGiaoHang()).isEqualTo(DEFAULT_DA_GIAO_HANG);
+
     }
 
     @Test
@@ -162,7 +183,11 @@ public class PayingResourceIntTest {
             .andExpect(jsonPath("$.[*].hoten").value(hasItem(DEFAULT_HOTEN.toString())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
             .andExpect(jsonPath("$.[*].diaChi").value(hasItem(DEFAULT_DIA_CHI.toString())))
-            .andExpect(jsonPath("$.[*].chiTietGiaoDich").value(hasItem(DEFAULT_CHI_TIET_GIAO_DICH.toString())));
+            .andExpect(jsonPath("$.[*].chiTietGiaoDich").value(hasItem(DEFAULT_CHI_TIET_GIAO_DICH.toString())))
+            .andExpect(jsonPath("$.[*].user_id").value(hasItem(DEFAULT_USER_ID.toString())))
+            .andExpect(jsonPath("$.[*].cartid").value(hasItem(DEFAULT_CARTID.toString())))
+            .andExpect(jsonPath("$.[*].daGiaoTien").value(hasItem(DEFAULT_DA_GIAO_TIEN.booleanValue())))
+            .andExpect(jsonPath("$.[*].daGiaoHang").value(hasItem(DEFAULT_DA_GIAO_HANG.booleanValue())));
     }
 
     @Test
@@ -181,7 +206,11 @@ public class PayingResourceIntTest {
             .andExpect(jsonPath("$.hoten").value(DEFAULT_HOTEN.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
             .andExpect(jsonPath("$.diaChi").value(DEFAULT_DIA_CHI.toString()))
-            .andExpect(jsonPath("$.chiTietGiaoDich").value(DEFAULT_CHI_TIET_GIAO_DICH.toString()));
+            .andExpect(jsonPath("$.chiTietGiaoDich").value(DEFAULT_CHI_TIET_GIAO_DICH.toString()))
+            .andExpect(jsonPath("$.user_id").value(DEFAULT_USER_ID.toString()))
+            .andExpect(jsonPath("$.cartid").value(DEFAULT_CARTID.toString()))
+            .andExpect(jsonPath("$.daGiaoTien").value(DEFAULT_DA_GIAO_TIEN.booleanValue()))
+            .andExpect(jsonPath("$.daGiaoHang").value(DEFAULT_DA_GIAO_HANG.booleanValue()));
     }
 
     @Test
@@ -206,7 +235,11 @@ public class PayingResourceIntTest {
                 .hoten(UPDATED_HOTEN)
                 .email(UPDATED_EMAIL)
                 .diaChi(UPDATED_DIA_CHI)
-                .chiTietGiaoDich(UPDATED_CHI_TIET_GIAO_DICH);
+                .chiTietGiaoDich(UPDATED_CHI_TIET_GIAO_DICH)
+                .user_id(UPDATED_USER_ID)
+                .cartid(UPDATED_CARTID)
+                .daGiaoTien(UPDATED_DA_GIAO_TIEN)
+                .daGiaoHang(UPDATED_DA_GIAO_HANG);
 
         restPayingMockMvc.perform(put("/api/payings")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -224,6 +257,10 @@ public class PayingResourceIntTest {
         assertThat(testPaying.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testPaying.getDiaChi()).isEqualTo(UPDATED_DIA_CHI);
         assertThat(testPaying.getChiTietGiaoDich()).isEqualTo(UPDATED_CHI_TIET_GIAO_DICH);
+        assertThat(testPaying.getUser_id()).isEqualTo(UPDATED_USER_ID);
+        assertThat(testPaying.getCartid()).isEqualTo(UPDATED_CARTID);
+        assertThat(testPaying.isDaGiaoTien()).isEqualTo(UPDATED_DA_GIAO_TIEN);
+        assertThat(testPaying.isDaGiaoHang()).isEqualTo(UPDATED_DA_GIAO_HANG);
     }
 
     @Test

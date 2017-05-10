@@ -1,13 +1,13 @@
 <div>
-    <h2>Cart Chi Tiets</h2>
+    <h2>Đơn hàng của bạn</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="cart-chi-tiet.new" >
+                <button class="btn btn-primary" ui-sref="paying.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span >
-                        Create new Cart Chi Tiet
+                        Thanh toán
                     </span>
                 </button>
             </div>
@@ -18,21 +18,25 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="cartId"><span>Mã đơn hàng</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bookId"><span>Book Id</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="numberOfBook"><span>Number Of Book</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="thanhtien"><span>Thanhtien</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cartId"><span>Cart Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bookName"><span>Book Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="cartChiTiet in vm.cartChiTiets track by cartChiTiet.id">
+                    <td>{{cartChiTiet.cartId}}</td>
                     <td><a ui-sref="cart-chi-tiet-detail({id:cartChiTiet.id})">{{cartChiTiet.id}}</a></td>
                     <td>{{cartChiTiet.bookId}}</td>
                     <td>{{cartChiTiet.numberOfBook}}</td>
                     <td>{{cartChiTiet.thanhtien}}</td>
-                    <td>{{cartChiTiet.cartId}}</td>
+                    <td>{{cartChiTiet.bookName}}</td>
+
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -60,7 +64,7 @@
         </table>
     </div>
     <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <!-- <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
     </div>
-    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager> -->
 </div>

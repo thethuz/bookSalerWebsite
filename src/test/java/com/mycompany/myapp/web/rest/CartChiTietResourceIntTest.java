@@ -48,6 +48,10 @@ public class CartChiTietResourceIntTest {
     private static final String DEFAULT_CART_ID = "AAAAAAAAAA";
     private static final String UPDATED_CART_ID = "BBBBBBBBBB";
 
+    private static final String DEFAULT_BOOK_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_BOOK_NAME = "BBBBBBBBBB";
+
+
     @Inject
     private CartChiTietRepository cartChiTietRepository;
 
@@ -85,7 +89,8 @@ public class CartChiTietResourceIntTest {
                 .bookId(DEFAULT_BOOK_ID)
                 .numberOfBook(DEFAULT_NUMBER_OF_BOOK)
                 .thanhtien(DEFAULT_THANHTIEN)
-                .cartId(DEFAULT_CART_ID);
+                .cartId(DEFAULT_CART_ID)
+                .bookName(DEFAULT_BOOK_NAME);
         return cartChiTiet;
     }
 
@@ -114,6 +119,8 @@ public class CartChiTietResourceIntTest {
         assertThat(testCartChiTiet.getNumberOfBook()).isEqualTo(DEFAULT_NUMBER_OF_BOOK);
         assertThat(testCartChiTiet.getThanhtien()).isEqualTo(DEFAULT_THANHTIEN);
         assertThat(testCartChiTiet.getCartId()).isEqualTo(DEFAULT_CART_ID);
+        assertThat(testCartChiTiet.getBookName()).isEqualTo(DEFAULT_BOOK_NAME);
+
     }
 
     @Test
@@ -148,7 +155,8 @@ public class CartChiTietResourceIntTest {
             .andExpect(jsonPath("$.[*].bookId").value(hasItem(DEFAULT_BOOK_ID.toString())))
             .andExpect(jsonPath("$.[*].numberOfBook").value(hasItem(DEFAULT_NUMBER_OF_BOOK)))
             .andExpect(jsonPath("$.[*].thanhtien").value(hasItem(DEFAULT_THANHTIEN)))
-            .andExpect(jsonPath("$.[*].cartId").value(hasItem(DEFAULT_CART_ID.toString())));
+            .andExpect(jsonPath("$.[*].cartId").value(hasItem(DEFAULT_CART_ID.toString())))
+            .andExpect(jsonPath("$.[*].bookName").value(hasItem(DEFAULT_BOOK_NAME.toString())));
     }
 
     @Test
@@ -164,7 +172,8 @@ public class CartChiTietResourceIntTest {
             .andExpect(jsonPath("$.bookId").value(DEFAULT_BOOK_ID.toString()))
             .andExpect(jsonPath("$.numberOfBook").value(DEFAULT_NUMBER_OF_BOOK))
             .andExpect(jsonPath("$.thanhtien").value(DEFAULT_THANHTIEN))
-            .andExpect(jsonPath("$.cartId").value(DEFAULT_CART_ID.toString()));
+            .andExpect(jsonPath("$.cartId").value(DEFAULT_CART_ID.toString()))
+            .andExpect(jsonPath("$.bookName").value(DEFAULT_BOOK_NAME.toString()));
     }
 
     @Test
@@ -187,7 +196,8 @@ public class CartChiTietResourceIntTest {
                 .bookId(UPDATED_BOOK_ID)
                 .numberOfBook(UPDATED_NUMBER_OF_BOOK)
                 .thanhtien(UPDATED_THANHTIEN)
-                .cartId(UPDATED_CART_ID);
+                .cartId(UPDATED_CART_ID)
+                .bookName(UPDATED_BOOK_NAME);
 
         restCartChiTietMockMvc.perform(put("/api/cart-chi-tiets")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -202,6 +212,7 @@ public class CartChiTietResourceIntTest {
         assertThat(testCartChiTiet.getNumberOfBook()).isEqualTo(UPDATED_NUMBER_OF_BOOK);
         assertThat(testCartChiTiet.getThanhtien()).isEqualTo(UPDATED_THANHTIEN);
         assertThat(testCartChiTiet.getCartId()).isEqualTo(UPDATED_CART_ID);
+        assertThat(testCartChiTiet.getBookName()).isEqualTo(UPDATED_BOOK_NAME);
     }
 
     @Test

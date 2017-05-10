@@ -9,6 +9,23 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
+        .state('paying.user', {
+            parent: 'entity',
+            url: '/paying',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'Payings'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/paying/payings.html',
+                    controller: 'PayingController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+            }
+        })
         .state('paying', {
             parent: 'entity',
             url: '/paying',
@@ -102,6 +119,10 @@
                                 email: null,
                                 diaChi: null,
                                 chiTietGiaoDich: null,
+                                user_id: null,
+                                cartid: null,
+                                daGiaoTien: null,
+                                daGiaoHang: null,
                                 id: null
                             };
                         }

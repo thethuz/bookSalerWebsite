@@ -46,6 +46,21 @@ public class Paying implements Serializable {
     @Field("chi_tiet_giao_dich")
     private String chiTietGiaoDich;
 
+    @Size(max = 100)
+    @Field("user_id")
+    private String user_id;
+
+    @Size(max = 100)
+    @Field("cartid")
+    private String cartid;
+
+    @Field("da_giao_tien")
+    private Boolean daGiaoTien;
+
+    @Field("da_giao_hang")
+    private Boolean daGiaoHang;
+
+
     public String getId() {
         return id;
     }
@@ -145,6 +160,58 @@ public class Paying implements Serializable {
         this.chiTietGiaoDich = chiTietGiaoDich;
     }
 
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public Paying user_id(String user_id) {
+        this.user_id = user_id;
+        return this;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getCartid() {
+        return cartid;
+    }
+
+    public Paying cartid(String cartid) {
+        this.cartid = cartid;
+        return this;
+    }
+
+    public void setCartid(String cartid) {
+        this.cartid = cartid;
+    }
+
+    public Boolean isDaGiaoTien() {
+        return daGiaoTien;
+    }
+
+    public Paying daGiaoTien(Boolean daGiaoTien) {
+        this.daGiaoTien = daGiaoTien;
+        return this;
+    }
+
+    public void setDaGiaoTien(Boolean daGiaoTien) {
+        this.daGiaoTien = daGiaoTien;
+    }
+
+    public Boolean isDaGiaoHang() {
+        return daGiaoHang;
+    }
+
+    public Paying daGiaoHang(Boolean daGiaoHang) {
+        this.daGiaoHang = daGiaoHang;
+        return this;
+    }
+
+    public void setDaGiaoHang(Boolean daGiaoHang) {
+        this.daGiaoHang = daGiaoHang;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -176,6 +243,11 @@ public class Paying implements Serializable {
             ", email='" + email + "'" +
             ", diaChi='" + diaChi + "'" +
             ", chiTietGiaoDich='" + chiTietGiaoDich + "'" +
+            ", user_id='" + user_id + "'" +
+            ", cartid='" + cartid + "'" +
+            ", daGiaoTien='" + daGiaoTien + "'" +
+            ", daGiaoHang='" + daGiaoHang + "'" +
+
             '}';
     }
 }

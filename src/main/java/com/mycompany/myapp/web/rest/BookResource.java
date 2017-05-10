@@ -19,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -70,11 +71,11 @@ public class BookResource {
     }
 
 
-    @GetMapping("/books/addtoCart/")
+    @GetMapping(value="/books/addtoCart/{id}")
     @Timed
-    public ResponseEntity<Book> addBookToCart (@Valid @RequestBody Book book) throws URISyntaxException{
+    public ResponseEntity<Book> addBookToCart (@PathVariable String id) throws URISyntaxException{
       //,@RequestBody String userid
-
+      Book book=bookService.findOne(id);
       int result = bookService.addBookToCart(book);
       // if(result==0)
       // {
@@ -86,13 +87,24 @@ public class BookResource {
       //   .headers(HeaderUtil.createEntityCreationAlert("book", book.getId().toString()))
       //   .body(result);
     }
-    @GetMapping("/books/subfromCart/")
+    @GetMapping("/books/subfromCart/{id}")
     @Timed
-    public ResponseEntity<Book> subBookFromCart (@Valid @RequestBody Book book) throws URISyntaxException{
+    public ResponseEntity<Book> subBookFromCart (@PathVariable String id) throws URISyntaxException{
       //,@RequestBody String userid
-
+      Book book=bookService.findOne(id);
       int result = bookService.subBookFromCart(book);
-      // if(result==0)
+      if(result==0){
+        System.out.println("thanh cong");
+      }
+      if(result==1){
+        System.out.println("het hang");
+      }
+      if(result==2){
+        System.out.println("chua dat hang");
+      }
+      if(result==3){
+        System.out.println("chua tao gio hang");
+      }
       // {
         return ResponseEntity.created(new URI("/api/books/" + book.getId()))
           .headers(HeaderUtil.createEntityCreationAlert("book", book.getId().toString()))
