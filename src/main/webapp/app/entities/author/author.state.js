@@ -118,6 +118,7 @@
                                 tenTacgia: null,
                                 introduce: null,
                                 ngaySinh: null,
+                                avatar: null,
                                 id: null
                             };
                         }

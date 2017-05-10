@@ -155,7 +155,7 @@ public class BookService {
     }
 
     public List<Book> findAllByTag(String tag){
-      log.debug("Request to get Book by tacGiaID: {}",tag);
+      log.debug("Request to get Book by tag: {}",tag);
       List<Book> result=bookRepository.findAllByTag(tag);
       return result;
     }

@@ -117,11 +117,11 @@ public class BookResource {
 
     @GetMapping("/books/tacgia/{id}")
     @Timed
-    public ResponseEntity<List<Book>> findAllByTacGia(@PathVariable String tacGia) throws URISyntaxException{
-      List<Book> page = bookService.findAllByTacGia(tacGia);
+    public ResponseEntity<List<Book>> findAllByTacGia(@PathVariable String id) throws URISyntaxException{
+      List<Book> page = bookService.findAllByTacGia(id);
       HttpHeaders headers = new HttpHeaders();
 
-  		URI location=new URI("books/tacgia/");
+  		URI location=new URI("books/tacgia/"+id);
 
   		headers.setLocation(location);
 
@@ -133,9 +133,10 @@ public class BookResource {
     @Timed
     public ResponseEntity<List<Book>> findAllByTag(@PathVariable String tag) throws URISyntaxException{
       List<Book> page = bookService.findAllByTag(tag);
+      System.out.println(page);
       HttpHeaders headers = new HttpHeaders();
 
-  		URI location=new URI("books/tag/");
+  		URI location=new URI("books/tag/"+tag);
 
   		headers.setLocation(location);
 

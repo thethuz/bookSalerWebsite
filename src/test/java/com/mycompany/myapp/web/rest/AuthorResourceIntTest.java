@@ -47,6 +47,9 @@ public class AuthorResourceIntTest {
     private static final LocalDate DEFAULT_NGAY_SINH = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_NGAY_SINH = LocalDate.now(ZoneId.systemDefault());
 
+    private static final String DEFAULT_AVATAR = "AAAAAAAAAA";
+    private static final String UPDATED_AVATAR = "BBBBBBBBBB";
+
     @Inject
     private AuthorRepository authorRepository;
 
@@ -83,7 +86,8 @@ public class AuthorResourceIntTest {
         Author author = new Author()
                 .tenTacgia(DEFAULT_TEN_TACGIA)
                 .introduce(DEFAULT_INTRODUCE)
-                .ngaySinh(DEFAULT_NGAY_SINH);
+                .ngaySinh(DEFAULT_NGAY_SINH)
+                .avatar(DEFAULT_AVATAR);
         return author;
     }
 
@@ -111,6 +115,7 @@ public class AuthorResourceIntTest {
         assertThat(testAuthor.getTenTacgia()).isEqualTo(DEFAULT_TEN_TACGIA);
         assertThat(testAuthor.getIntroduce()).isEqualTo(DEFAULT_INTRODUCE);
         assertThat(testAuthor.getNgaySinh()).isEqualTo(DEFAULT_NGAY_SINH);
+        assertThat(testAuthor.getAvatar()).isEqualTo(DEFAULT_AVATAR);
     }
 
     @Test
@@ -161,7 +166,8 @@ public class AuthorResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(author.getId())))
             .andExpect(jsonPath("$.[*].tenTacgia").value(hasItem(DEFAULT_TEN_TACGIA.toString())))
             .andExpect(jsonPath("$.[*].introduce").value(hasItem(DEFAULT_INTRODUCE.toString())))
-            .andExpect(jsonPath("$.[*].ngaySinh").value(hasItem(DEFAULT_NGAY_SINH.toString())));
+            .andExpect(jsonPath("$.[*].ngaySinh").value(hasItem(DEFAULT_NGAY_SINH.toString())))
+            .andExpect(jsonPath("$.[*].avatar").value(hasItem(DEFAULT_AVATAR.toString())));
     }
 
     @Test
@@ -176,7 +182,8 @@ public class AuthorResourceIntTest {
             .andExpect(jsonPath("$.id").value(author.getId()))
             .andExpect(jsonPath("$.tenTacgia").value(DEFAULT_TEN_TACGIA.toString()))
             .andExpect(jsonPath("$.introduce").value(DEFAULT_INTRODUCE.toString()))
-            .andExpect(jsonPath("$.ngaySinh").value(DEFAULT_NGAY_SINH.toString()));
+            .andExpect(jsonPath("$.ngaySinh").value(DEFAULT_NGAY_SINH.toString()))
+            .andExpect(jsonPath("$.avatar").value(DEFAULT_AVATAR.toString()));
     }
 
     @Test
@@ -198,7 +205,8 @@ public class AuthorResourceIntTest {
         updatedAuthor
                 .tenTacgia(UPDATED_TEN_TACGIA)
                 .introduce(UPDATED_INTRODUCE)
-                .ngaySinh(UPDATED_NGAY_SINH);
+                .ngaySinh(UPDATED_NGAY_SINH)
+                .avatar(UPDATED_AVATAR);
 
         restAuthorMockMvc.perform(put("/api/authors")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -212,6 +220,7 @@ public class AuthorResourceIntTest {
         assertThat(testAuthor.getTenTacgia()).isEqualTo(UPDATED_TEN_TACGIA);
         assertThat(testAuthor.getIntroduce()).isEqualTo(UPDATED_INTRODUCE);
         assertThat(testAuthor.getNgaySinh()).isEqualTo(UPDATED_NGAY_SINH);
+        assertThat(testAuthor.getAvatar()).isEqualTo(UPDATED_AVATAR);
     }
 
     @Test

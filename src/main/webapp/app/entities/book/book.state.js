@@ -55,7 +55,7 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/book/books.html',
+                    templateUrl: 'app/entities/book/books.tag.html',
                     controller: 'BookTagController',
                     controllerAs: 'vm'
                 }

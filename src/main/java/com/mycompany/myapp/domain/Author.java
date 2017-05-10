@@ -33,6 +33,10 @@ public class Author implements Serializable {
     @Field("ngay_sinh")
     private LocalDate ngaySinh;
 
+    @Size(max = 500)
+    @Field("avatar")
+    private String avatar;
+
     public String getId() {
         return id;
     }
@@ -80,6 +84,19 @@ public class Author implements Serializable {
         this.ngaySinh = ngaySinh;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public Author avatar(String avatar) {
+        this.avatar = avatar;
+        return this;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -107,6 +124,7 @@ public class Author implements Serializable {
             ", tenTacgia='" + tenTacgia + "'" +
             ", introduce='" + introduce + "'" +
             ", ngaySinh='" + ngaySinh + "'" +
+            ", avatar='" + avatar + "'" +
             '}';
     }
 }

@@ -25,6 +25,14 @@
             "fieldName": "ngaySinh",
             "fieldType": "LocalDate",
             "fieldValidateRules": []
+        },
+        {
+            "fieldName": "avatar",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
         }
     ],
     "dto": "no",
