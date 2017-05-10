@@ -21,6 +21,7 @@
         vm.login = login;
         vm.logout = logout;
         vm.viewCart = viewCart;
+        vm.viewAuthor = viewAuthor;
         vm.toggleNavbar = toggleNavbar;
         vm.collapseNavbar = collapseNavbar;
         vm.$state = $state;

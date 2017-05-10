@@ -121,7 +121,7 @@ public class BookResource {
       List<Book> page = bookService.findAllByTacGia(tacGia);
       HttpHeaders headers = new HttpHeaders();
 
-  		URI location=new URI("api/books/tacgia/{id}");
+  		URI location=new URI("books/tacgia/");
 
   		headers.setLocation(location);
 
@@ -135,7 +135,7 @@ public class BookResource {
       List<Book> page = bookService.findAllByTag(tag);
       HttpHeaders headers = new HttpHeaders();
 
-  		URI location=new URI("api/books/tag/{tag}");
+  		URI location=new URI("books/tag/");
 
   		headers.setLocation(location);
 

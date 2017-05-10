@@ -72,6 +72,10 @@
                 search: null
             },
             resolve: {
+              entity: ['$stateParams', 'Book', '$resource', function($stateParams, Book,$resource) {
+                  // return Book.get({id : $stateParams.id}).$promise;
+                  return $stateParams.tag;
+              }],
                 pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
                     return {
                         page: PaginationUtil.parsePage($stateParams.page),

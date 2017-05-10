@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li ui-sref-active="active" ng-switch-when="true">
-                    <a href="" ng-click="vm.author()" id="viewCart">
+                    <a href="" ng-click="vm.viewAuthor()" id="viewCart">
                         <span class="glyphicon glyphicon-log-in"></span>&nbsp;
                         <span>Tác giả</span>
                     </a>
@@ -55,31 +55,31 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active">
-                            <a ui-sref="author" ng-click="vm.collapseNavbar()">
+                            <a href="#/book/tag/1" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Sách người lớn</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="book" ng-click="vm.collapseNavbar()">
+                            <a href="#/book/tag/2" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Sách văn học</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="cart-chi-tiet" ng-click="vm.collapseNavbar()">
+                            <a href="#/book/tag/3" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Sách thiếu nhi</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="cart" ng-click="vm.collapseNavbar()">
+                            <a href="#/book/tag/4" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Sách nấu ăn</span>
                             </a>
                         </li>
                         <li ui-sref-active="active">
-                            <a ui-sref="paying" ng-click="vm.collapseNavbar()">
+                            <a href="#/book/tag/5" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Tiểu thuyết trinh thám</span>
                             </a>
@@ -137,6 +137,62 @@
                                 <span>Register</span>
                             </a>
                         </li>
+                    </ul>
+                </li>
+                <!-- Admin module -->
+                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm">Module</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+
+                        <li ui-sref-active="active">
+                            <a ui-sref="book.new" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Thêm sách</span>
+                            </a>
+                        </li>
+                        <!-- <li ui-sref-active="active">
+                            <a ui-sref="book.edit" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Sửa sách</span>
+                            </a>
+                        </li> -->
+                        <li ui-sref-active="active">
+                            <a ui-sref="author.new" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Thêm tác giả</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="paying.admin" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;
+                                <span>Hóa đơn</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="audits" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-bell"></span>&nbsp;
+                                <span>Audits</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="logs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-tasks"></span>&nbsp;
+                                <span>Logs</span>
+                            </a>
+                        </li>
+                        <li ng-show="vm.swaggerEnabled" ui-sref-active="active">
+                            <a ui-sref="docs" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-book"></span>&nbsp;
+                                <span>API</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>
                 <!-- Admin -->
@@ -212,6 +268,8 @@
                         <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                     </ul>
                 </li>
+
+
             </ul>
         </div>
     </div>
