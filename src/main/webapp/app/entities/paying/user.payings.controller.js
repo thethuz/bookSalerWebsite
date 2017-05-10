@@ -3,7 +3,7 @@
 
     angular
         .module('bookManagementApp')
-        .controller('PayingController', PayingController);
+        .controller('UserPayingController', UserPayingController);
 
     UserPayingController.$inject = ['$scope', '$state', 'Paying','$resource'];
 
@@ -15,9 +15,10 @@
         loadAll();
 
         function loadAll() {
-            var Payingx=$resource().query(function(result) {
-                vm.payings = result;
-                vm.searchQuery = null;
+            var Payingx=$resource('/api/payings/user',{},{'query': { method: 'GET', isArray: true}});
+            Payingx.query({},function (data) {
+              console.log(data);
+              vm.payings=data;
             });
         }
     }

@@ -46,58 +46,42 @@
                 }],
             }
         })
-        .state('find-by_tag',{
-          parent: 'entity',
-          url: '/book?findbytag={tag}',
-          data: {
-              authorities: ['ROLE_USER'],
-              pageTitle: 'Books'
-          },
-          views: {
-              'content@': {
-                  templateUrl: 'app/entities/book/find-book-tag.html',
-                  controller: 'BookFinderByTag',
-                  controllerAs: 'vm'
-              }
-          },
-          resolve: {
-              pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
-                  return {
-                      page: PaginationUtil.parsePage($stateParams.page),
-                      sort: $stateParams.sort,
-                      predicate: PaginationUtil.parsePredicate($stateParams.sort),
-                      ascending: PaginationUtil.parseAscending($stateParams.sort),
-                      search: $stateParams.search
-                  };
-              }],
-          }
-
-        })
-        .state('find-by_author',{
-          parent: 'entity',
-          url: '/book?findbyauthor={tag}',
-          data: {
-              authorities: ['ROLE_USER'],
-              pageTitle: 'Books'
-          },
-          views: {
-              'content@': {
-                  templateUrl: 'app/entities/book/find-book-author.html',
-                  controller: 'BookFinderByAuthor',
-                  controllerAs: 'vm'
-              }
-          },
-          resolve: {
-              pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
-                  return {
-                      page: PaginationUtil.parsePage($stateParams.page),
-                      sort: $stateParams.sort,
-                      predicate: PaginationUtil.parsePredicate($stateParams.sort),
-                      ascending: PaginationUtil.parseAscending($stateParams.sort),
-                      search: $stateParams.search
-                  };
-              }],
-          }
+        .state('book.tag', {
+            parent: 'entity',
+            url: '/book/tag/{tag}',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'Books'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/book/books.html',
+                    controller: 'BookTagController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }],
+            }
         })
         .state('book-detail', {
             parent: 'entity',
@@ -126,14 +110,6 @@
                     return currentStateData;
                 }]
             }
-        })
-        .state('book-addtocart',{
-          parent: 'entity',
-          url: 'book/addtocart/{id:book.id}',
-          data: {
-            authorities: [],
-            pageTitle: 'Book'
-          }
         })
         .state('book-detail.edit', {
             parent: 'book-detail',

@@ -36,7 +36,10 @@
             $state.go('home');
         }
         function viewCart(){
-          $state.go('cart-chi-tiet');
+          $state.go('cart-chi-tiet-user');
+        }
+        function viewAuthor() {
+          $state.go('author');
         }
 
         function toggleNavbar() {

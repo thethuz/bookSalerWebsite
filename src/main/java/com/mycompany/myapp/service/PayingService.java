@@ -59,6 +59,7 @@ public class PayingService{
     String userId=getIdCurrentUserLogin();
     // long price=0L;
     cart.setStatus(false);
+    cartRepository.save(cart);
     return paying;
   }
 

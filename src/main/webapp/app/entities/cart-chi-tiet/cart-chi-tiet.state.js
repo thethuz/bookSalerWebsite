@@ -46,6 +46,43 @@
                 }]
             }
         })
+        .state('cart-chi-tiet-user', {
+            parent: 'entity',
+            url: '/cart-chi-tiet?page&sort&search',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'CartChiTiets'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/cart-chi-tiet/cart-chi-tiets.html',
+                    controller: 'CartChiTietUController',
+                    controllerAs: 'vm'
+                }
+            },
+            params: {
+                page: {
+                    value: '1',
+                    squash: true
+                },
+                sort: {
+                    value: 'id,asc',
+                    squash: true
+                },
+                search: null
+            },
+            resolve: {
+                pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                    return {
+                        page: PaginationUtil.parsePage($stateParams.page),
+                        sort: $stateParams.sort,
+                        predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                        ascending: PaginationUtil.parseAscending($stateParams.sort),
+                        search: $stateParams.search
+                    };
+                }]
+            }
+        })
         .state('cart-chi-tiet-detail', {
             parent: 'entity',
             url: '/cart-chi-tiet/{id}',
