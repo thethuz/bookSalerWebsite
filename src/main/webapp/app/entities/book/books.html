@@ -1,27 +1,44 @@
 <div>
 
     <jhi-alert></jhi-alert>
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-           <div class="row">
+
+    <div class="container">
+        <div class="row">
             <div ng-repeat="book in vm.books track by book.id">
-              <div>
-                <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
-                <!-- <div>{{book.tenSach}}</div> -->
+              <div class="col-md-3">
+                <!-- <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
+                <div>{{book.tenSach}}</div>
                 <div>{{book.trangThaiConHang}}</div>
                 <div>{{book.tomTat}}</div>
                 <!-- <div>{{book.rating}}</div> -->
                 <!-- <div>{{book.anhDaiDien}}</div> -->
-                <div>{{book.tag}}</div>
+                <!-- <div>{{book.tag}}</div>
                 <div>{{book.giaCu}}</div>
-                <div>{{book.giaMoi}}</div>
+                <div>{{book.giaMoi}}</div> -->
+
+  <div>
+    <div class="thumbnail">
+      <img ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" alt="...">
+      <div class="caption" style="text-align: center">
+        <p>{{book.tenSach}}</p>
+        <p>{{book.tenTacgia}}</p>
+        <p style="text-decoration: line-through;">Gia cu : {{book.giaCu}}</p>
+        <p>Gia moi : {{book.giaMoi}}</p>
+        <p><a href="#" class="btn btn-primary" role="button">mua</a><a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="hidden-xs hidden-sm"> Chi tiet</span>
+        </a></p>
+      </div>
+    </div>
+  </div>
+</div>
                 <!-- <div>{{book.tacGia}}</div> -->
                 <!-- <div>{{book.namXuatBan}}</div> -->
                 <!-- <div>{{book.nhaXuatBan}}</div> -->
                 <!--  -->
-                <div class="col-md-3">
-                     <div class="row">
-                          <div class="col-md-12">
+
+
+                          <!-- <div class="col-md-3">
                                 <div class="card hoverable">
                                   <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src={{book.anhDaiDien}}>
@@ -32,7 +49,7 @@
                                   <div class="card-content">
                                     <a href="ChiTietSach.html"><span class="card-title activator grey-text text-darken-4">{{book.tenSach}}
                                       <!-- <i class="material-icons right">more_vert</i> -->
-                                    </span></a>
+                                    <!-- </span></a>
                                     <p><a href="#/author/{{book.tacGia}}"></a>{{book.tenTacgia}}</p>
                                   </div>
                                   <div class="card-reveal">
@@ -43,20 +60,20 @@
                                     <p>{{book.nhaXuatBan}}</p>
                                     <p>{{book.tag}}</p>
                                   </div>
-                                </div>
-                          </div>
+                                </div> -->
+
                           <!-- <button type="button" href="#/book/addtocart/{id:book.id}" class="btn btn-primary">
                               <span class="glyphicon glyphicon-pencil"></span>
                               <span class="hidden-xs hidden-sm"> Add</span>
                           </button> -->
-                          <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
+                          <!-- <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
                               <span class="glyphicon glyphicon-pencil"></span>
                               <span class="hidden-xs hidden-sm"> Chi tiet</span>
-                          </a>
+                          </a> -->
 
-                     </div>
 
-                     <td class="text-right">
+
+                     <!-- <td class="text-right"> -->
                          <!-- <div class="btn-group flex-btn-group-container">
                              <button type="submit"
                                      ui-sref="book-detail({id:book.id})"
@@ -77,16 +94,17 @@
                                  <span class="hidden-xs hidden-sm"></span>
                              </button>
                          </div> -->
-                     </td>
-                </div>
-                <!--  -->
+                     <!-- </td> -->
 
+                <!--  -->
               </div>
             </div>
-          </div>
         </div>
-    <div class="text-center">
-        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
-        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+            <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+        </div>
     </div>
 </div>
