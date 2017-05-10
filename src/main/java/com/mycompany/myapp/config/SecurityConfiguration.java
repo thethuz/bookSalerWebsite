@@ -127,7 +127,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/carts").permitAll()
             .antMatchers("/api/cart-chi-tiets").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/cart-chi-tiets/").hasAuthority(AuthoritiesConstants.USER)
-
+            .antMatchers("/api/payings/*").hasAuthority(AuthoritiesConstants.USER)
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/v2/api-docs/**").permitAll()

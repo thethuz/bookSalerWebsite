@@ -36,12 +36,8 @@ public class PayingResource {
     private PayingService payingService;
     /**
      * POST  /payings : Create a new paying.
-     *
-     * @param paying the paying to create
-     * @return the ResponseEntity with status 201 (Created) and with body the new paying, or with status 400 (Bad Request) if the paying has already an ID
-     * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @PutMapping("/payings")
+    @PostMapping("/payings")
     @Timed
     public ResponseEntity<Paying> createPaying(@Valid @RequestBody Paying paying) throws URISyntaxException {
         log.debug("REST request to save Paying : {}", paying);

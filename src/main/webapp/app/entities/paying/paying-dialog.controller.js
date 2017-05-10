@@ -10,7 +10,7 @@
     function PayingDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Paying,$resource) {
         var vm = this;
         vm.paying=entity;
-        var Paying = $resource('api/payings/prefix',{},{
+        var PayingX = $resource('api/payings/prefix',{},{
           'get': {
               method: 'GET',
               transformResponse: function (data) {
@@ -21,7 +21,7 @@
               }
           }
         });
-        Paying.get({},function(data){
+        PayingX.get({},function(data){
           console.log(data);
           // vm.paying = entity;
           if(data!=undefined || data.length==1){
