@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col s10 offset-s1">
        <div class="row">
-        <div ng-repeat="book in vm.books track by book.id">
+        <div  ng-repeat="book in vm.books track by book.id">
           <div>
             <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
             <!-- <div>{{book.tenSach}}</div> -->
@@ -26,7 +26,7 @@
                       <div class="col s12">
                             <div class="card hoverable">
                               <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src={{book.anhDaiDien}}>
+                                <img class="activator" src={{'content/images/'+book.anhDaiDien}}>
                               </div>
                               <div class="card-content">
                                 <div>{{book.rating}}</div>

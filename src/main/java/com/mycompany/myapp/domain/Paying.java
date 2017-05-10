@@ -60,6 +60,9 @@ public class Paying implements Serializable {
     @Field("da_giao_hang")
     private Boolean daGiaoHang;
 
+    @Field("user")
+    private String user;
+
 
     public String getId() {
         return id;
@@ -171,6 +174,7 @@ public class Paying implements Serializable {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+        this.user=user_id;
     }
 
     public String getCartid() {
@@ -210,6 +214,19 @@ public class Paying implements Serializable {
 
     public void setDaGiaoHang(Boolean daGiaoHang) {
         this.daGiaoHang = daGiaoHang;
+    }
+
+    public String getUser() {
+      return user;
+    }
+
+    public Paying user(String user) {
+      this.user = user;
+      return this;
+    }
+
+    public void setUser(String user) {
+      this.user = user;
     }
 
     @Override

@@ -109,6 +109,13 @@ public class PayingResource {
         List<Paying> payings = payingRepository.findAll();
         return payings;
     }
+    @GetMapping("/payings/user")
+    @Timed
+    public List<Paying> getAllPayingsByUser() {
+        log.debug("REST request to get all User Payings");
+        List<Paying> payings = payingService.getAllPayingsByUser();
+        return payings;
+    }
 
     // @GetMapping("/payings/done")
     // @Timed
@@ -131,6 +138,8 @@ public class PayingResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+
 
     /**
      * DELETE  /payings/:id : delete the "id" paying.

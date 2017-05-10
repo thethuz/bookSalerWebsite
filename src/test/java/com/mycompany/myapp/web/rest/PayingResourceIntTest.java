@@ -68,6 +68,9 @@ public class PayingResourceIntTest {
     private static final Boolean DEFAULT_DA_GIAO_HANG = false;
     private static final Boolean UPDATED_DA_GIAO_HANG = true;
 
+    private static final String DEFAULT_USER = "AAAAAAAAAA";
+    private static final String UPDATED_USER = "BBBBBBBBBB";
+
     @Inject
     private PayingRepository payingRepository;
 
@@ -109,7 +112,8 @@ public class PayingResourceIntTest {
                 .user_id(DEFAULT_USER_ID)
                 .cartid(DEFAULT_CARTID)
                 .daGiaoTien(DEFAULT_DA_GIAO_TIEN)
-                .daGiaoHang(DEFAULT_DA_GIAO_HANG);
+                .daGiaoHang(DEFAULT_DA_GIAO_HANG)
+                .user(DEFAULT_USER);
         return paying;
     }
 
@@ -145,6 +149,7 @@ public class PayingResourceIntTest {
         assertThat(testPaying.getCartid()).isEqualTo(DEFAULT_CARTID);
         assertThat(testPaying.isDaGiaoTien()).isEqualTo(DEFAULT_DA_GIAO_TIEN);
         assertThat(testPaying.isDaGiaoHang()).isEqualTo(DEFAULT_DA_GIAO_HANG);
+        assertThat(testPaying.getUser()).isEqualTo(DEFAULT_USER);
 
     }
 
@@ -187,7 +192,8 @@ public class PayingResourceIntTest {
             .andExpect(jsonPath("$.[*].user_id").value(hasItem(DEFAULT_USER_ID.toString())))
             .andExpect(jsonPath("$.[*].cartid").value(hasItem(DEFAULT_CARTID.toString())))
             .andExpect(jsonPath("$.[*].daGiaoTien").value(hasItem(DEFAULT_DA_GIAO_TIEN.booleanValue())))
-            .andExpect(jsonPath("$.[*].daGiaoHang").value(hasItem(DEFAULT_DA_GIAO_HANG.booleanValue())));
+            .andExpect(jsonPath("$.[*].daGiaoHang").value(hasItem(DEFAULT_DA_GIAO_HANG.booleanValue())))
+            .andExpect(jsonPath("$.[*].user").value(hasItem(DEFAULT_USER.toString())));
     }
 
     @Test
@@ -210,7 +216,8 @@ public class PayingResourceIntTest {
             .andExpect(jsonPath("$.user_id").value(DEFAULT_USER_ID.toString()))
             .andExpect(jsonPath("$.cartid").value(DEFAULT_CARTID.toString()))
             .andExpect(jsonPath("$.daGiaoTien").value(DEFAULT_DA_GIAO_TIEN.booleanValue()))
-            .andExpect(jsonPath("$.daGiaoHang").value(DEFAULT_DA_GIAO_HANG.booleanValue()));
+            .andExpect(jsonPath("$.daGiaoHang").value(DEFAULT_DA_GIAO_HANG.booleanValue()))
+            .andExpect(jsonPath("$.user").value(DEFAULT_USER.toString()));
     }
 
     @Test
@@ -239,7 +246,8 @@ public class PayingResourceIntTest {
                 .user_id(UPDATED_USER_ID)
                 .cartid(UPDATED_CARTID)
                 .daGiaoTien(UPDATED_DA_GIAO_TIEN)
-                .daGiaoHang(UPDATED_DA_GIAO_HANG);
+                .daGiaoHang(UPDATED_DA_GIAO_HANG)
+                .user(UPDATED_USER);
 
         restPayingMockMvc.perform(put("/api/payings")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)

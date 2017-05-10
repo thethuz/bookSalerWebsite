@@ -9,16 +9,16 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('paying.user', {
+        .state('paying.admin', {
             parent: 'entity',
             url: '/paying',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_ADMIN'],
                 pageTitle: 'Payings'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/paying/payings.html',
+                    templateUrl: 'app/entities/paying/adm.payings.html',
                     controller: 'PayingController',
                     controllerAs: 'vm'
                 }
@@ -36,7 +36,7 @@
             views: {
                 'content@': {
                     templateUrl: 'app/entities/paying/payings.html',
-                    controller: 'PayingController',
+                    controller: 'UserPayingController',
                     controllerAs: 'vm'
                 }
             },

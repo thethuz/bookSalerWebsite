@@ -61,6 +61,7 @@ public class PayingService{
     cart.setStatus(false);
     return paying;
   }
+
   public Paying getPrefix (){
     Cart cart= cartRepository.findByUserIdAndStatusTrue(getIdCurrentUserLogin());
     if(cart==null) return null;// Paying paying =new Paying();
@@ -73,6 +74,7 @@ public class PayingService{
     paying.setChiTietGiaoDich(getThongTinGiaoDich());
     return paying;
   }
+
   public long getTotalValue(){
     String userId=getIdCurrentUserLogin();
     long price=0L;
@@ -83,6 +85,7 @@ public class PayingService{
     }
     return price;
   }
+
   public String getThongTinGiaoDich(){
     String chitietGD="";
     List<CartChiTiet> listCartCt = cartChiTietService.findAllByUser();
@@ -94,5 +97,7 @@ public class PayingService{
     return chitietGD;
   }
 
-
+  public List<Paying> getAllPayingsByUser(){
+    return payingRepository.findAllByUser(getIdCurrentUserLogin());
+  }
 }

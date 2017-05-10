@@ -75,6 +75,14 @@
             "fieldName": "daGiaoHang",
             "fieldType": "Boolean",
             "fieldValidateRules": []
+        },
+        {
+            "fieldName": "user",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
         }
     ],
     "dto": "no",
