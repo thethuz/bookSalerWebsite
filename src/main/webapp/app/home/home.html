@@ -61,85 +61,23 @@
 
   <div>
     <div class="thumbnail">
-      <img class = "img-responsive" ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" alt="...">
+      <img class = "img-responsive" ng-src="{{book.anhDaiDien}}" alt="...">
       <div class="caption" style="text-align: center">
         <p>{{book.tenSach}}</p>
-        <p>{{book.tenTacgia}}</p>
-        <p style="text-decoration: line-through;">Gia cu : {{book.giaCu}}</p>
-        <p>Gia moi : {{book.giaMoi}}</p>
-        <p><a href="#" class="btn btn-primary" role="button">mua</a><a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
+        <p>Tác giả: {{book.tenTacgia}}</p>
+        <p style="text-decoration: line-through;">Giá : {{book.giaCu}}</p>
+        <p>Giá khuyến mại : {{book.giaMoi}}</p>
+        <p>
+          <!-- <a href="#" class="btn btn-primary" role="button">mua</a> -->
+          <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
             <span class="glyphicon glyphicon-pencil"></span>
-            <span class="hidden-xs hidden-sm"> Chi tiet</span>
+            <span class="hidden-xs hidden-sm"> Chi tiết</span>
         </a></p>
       </div>
     </div>
   </div>
               </div>
-                <!-- <div>{{book.tacGia}}</div> -->
-                <!-- <div>{{book.namXuatBan}}</div> -->
-                <!-- <div>{{book.nhaXuatBan}}</div> -->
-                <!--  -->
 
-
-                          <!-- <div class="col-md-3">
-                                <div class="card hoverable">
-                                  <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src={{book.anhDaiDien}}>
-                                  </div>
-                                  <div class="card-content">
-                                    <div>{{book.rating}}</div>
-                                  </div>
-                                  <div class="card-content">
-                                    <a href="ChiTietSach.html"><span class="card-title activator grey-text text-darken-4">{{book.tenSach}}
-                                      <!-- <i class="material-icons right">more_vert</i> -->
-                                    <!-- </span></a>
-                                    <p><a href="#/author/{{book.tacGia}}"></a>{{book.tenTacgia}}</p>
-                                  </div>
-                                  <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">{{book.tomTat}}<i class="material-icons right">close</i></span>
-                                    <p>{{book.tenSach}}/p>
-                                    <p>{{book.tenTacgia}}</p>
-                                    <p>{{book.namXuatBan}}</p>
-                                    <p>{{book.nhaXuatBan}}</p>
-                                    <p>{{book.tag}}</p>
-                                  </div>
-                                </div> -->
-
-                          <!-- <button type="button" href="#/book/addtocart/{id:book.id}" class="btn btn-primary">
-                              <span class="glyphicon glyphicon-pencil"></span>
-                              <span class="hidden-xs hidden-sm"> Add</span>
-                          </button> -->
-                          <!-- <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
-                              <span class="glyphicon glyphicon-pencil"></span>
-                              <span class="hidden-xs hidden-sm"> Chi tiet</span>
-                          </a> -->
-
-
-
-                     <!-- <td class="text-right"> -->
-                         <!-- <div class="btn-group flex-btn-group-container">
-                             <button type="submit"
-                                     ui-sref="book-detail({id:book.id})"
-                                     class="btn btn-info btn-sm">
-                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                 <span class="hidden-xs hidden-sm"></span>
-                             </button>
-                             <button type="submit"
-                                     ui-sref="book.edit({id:book.id})"
-                                     class="btn btn-primary btn-sm">
-                                 <span class="glyphicon glyphicon-pencil"></span>
-                                 <span class="hidden-xs hidden-sm"></span>
-                             </button>
-                             <button type="submit"
-                                     ui-sref="book.delete({id:book.id})"
-                                     class="btn btn-danger btn-sm">
-                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                 <span class="hidden-xs hidden-sm"></span>
-                             </button>
-                         </div> -->
-                     <!-- </td> -->
-
-                <!--  -->
               </div>
             </div>
         </div>

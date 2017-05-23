@@ -90,10 +90,11 @@ public class PayingService{
   public String getThongTinGiaoDich(){
     String chitietGD="";
     List<CartChiTiet> listCartCt = cartChiTietService.findAllByUser();
+    // chitietGD=
     if(listCartCt!=null || listCartCt.size()>0 )
     for(int i=1;i<=listCartCt.size();i++){
       // int count
-      chitietGD=i+". Tên sách: "+listCartCt.get(i-1).getBookName()+" số lượng: "+listCartCt.get(i-1).getNumberOfBook() + " thành tiền "+listCartCt.get(i-1).getThanhtien()+" \n";
+      chitietGD+=i+". Tên sách: "+listCartCt.get(i-1).getBookName()+" số lượng: "+listCartCt.get(i-1).getNumberOfBook() + " thành tiền "+listCartCt.get(i-1).getThanhtien()+" <br>";
     }
     return chitietGD;
   }

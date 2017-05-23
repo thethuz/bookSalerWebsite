@@ -57,26 +57,26 @@
     <div class="container">
        <div class="row">
            <div class="col-md-4" >
-               <img ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" class="responsive-img materialboxed" data-caption="Mat ma davinci" style="min-width: 250px">
+               <img ng-src="{{vm.book.anhDaiDien}}" class="responsive-img materialboxed" data-caption="Mat ma davinci" style="min-width: 250px">
            </div>
            <div class="col-md-6" >
                <div>
                    <h3  style="font-weight: normal;" >{{vm.book.tenSach}}</h3>
                </div>
-               <p>Tinh trang : <span >{{vm.book.trangThaiConHang}}</span></p>
+               <p>Còn hàng : <span >{{vm.book.trangThaiConHang==false?'Còn':'Hết'}}</span></p>
                <div class="row">
 
                    <!-- <div class="col s2">
                        <a class="waves-effect waves-light btn-large red"><i class="material-icons">favorite</i></a>
                    </div> -->
-                   <div>{{vm.book.tag}}</div>
-                   <div>{{vm.book.giaCu}}</div>
-                   <div>{{vm.book.giaMoi}}</div>
-                   <div>{{vm.book.tacGia}}</div>
-                   <div>{{vm.book.namXuatBan}}</div>
-                   <div>{{vm.book.nhaXuatBan}}</div>
-                   <div>{{vm.book.tenTacgia}}</div>
-                   <div>{{vm.book.tomTat}}</div>
+                   <div>Thể loại: {{vm.book.tag==1?'Sách người lớn':vm.book.tag==2?'Sách văn học':vm.book.tag==3?'Sách thiếu nhi':vm.book.tag==4?'Sách nấu ăn':vm.book.tag==5?'Tiểu thuyết trinh thám':'Thể loại khác'}}</div>
+                   <div>Giá: {{vm.book.giaCu}}</div>
+                   <div>Giá khuyến mại: {{vm.book.giaMoi}}</div>
+                   <!-- <div>Tác giả:{{vm.book.tacGia}}</div> -->
+                   <div>Tác giả: {{vm.book.tenTacgia}}</div>
+                   <div>Năm xuất bản: {{vm.book.namXuatBan}}</div>
+                   <div>Nhà xuất bản: {{vm.book.nhaXuatBan}}</div>
+                   <div>Tóm tắt: {{vm.book.tomTat}}</div>
 
                </div>
                <div class="row">

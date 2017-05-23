@@ -24,11 +24,11 @@
                        <div class="col-md-6 col-md-offset-2">
                            <div  style="font-size: 20px">
                               <p ><span style="color: #009688">
-                                 Ho ten :
+                                 Họ tên :
                               </span>
                               {{vm.author.tenTacgia}}</p>
                               <p ><span style="color: #009688">
-                                ngay sinh :
+                                Ngày sinh :
                               </span>
                               {{vm.author.ngaySinh}}</p>
                               <!-- <p ><span > -->
@@ -36,7 +36,7 @@
                               </span>
                               hollywood</p> -->
                               <p><span style="color: #009688">
-                                gioi thieu ve tac gia :
+                                Giới thiệu về tác gỉa :
                               </span>
                                {{vm.author.introduce}}
                              </p>
@@ -61,18 +61,20 @@
                 <div ng-repeat="book in vm.books track by book.id">
                   <div class="col-md-3">
 
-
+                    <div>Sách cùng tác giả<div>
       <div>
         <div class="thumbnail">
-          <img ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" alt="...">
+          <img ng-src="{{book.anhDaiDien}}" alt="...">
           <div class="caption" style="text-align: center">
             <p>{{book.tenSach}}</p>
-            <p>{{book.tenTacgia}}</p>
-            <p style="text-decoration: line-through;">Gia cu : {{book.giaCu}}</p>
-            <p>Gia moi : {{book.giaMoi}}</p>
-            <p><a href="#" class="btn btn-primary" role="button">mua</a><a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
+            <!-- <p>{{book.tenTacgia}}</p> -->
+            <p style="text-decoration: line-through;">Giá : {{book.giaCu}}</p>
+            <p>Giá khuyến mãi : {{book.giaMoi}}</p>
+            <p>
+              <!-- <a href="#" class="btn btn-primary" role="button">mua</a> -->
+              <a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-pencil"></span>
-                <span class="hidden-xs hidden-sm"> Chi tiet</span>
+                <span class="hidden-xs hidden-sm"> Chi tiết</span>
             </a></p>
           </div>
         </div>

@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myPayingLabel">Create or edit a Paying</h4>
+        <h4 class="modal-title" id="myPayingLabel">Hóa đơn:</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -19,7 +19,7 @@
                     ng-model="vm.paying.price"
                      />
         </div> -->
-        <div>{{vm.paying.price}}</div>
+        <div>Giá: {{vm.paying.price}}</div>
         <!-- <div class="form-group">
             <label class="control-label" for="field_priceWithVAT">Price With VAT</label>
             <input type="text" class="form-control" name="priceWithVAT" id="field_priceWithVAT"
@@ -27,18 +27,25 @@
                      />
         </div> -->
 
-        <div>{{vm.paying.priceWithVAT}}</div>
+        <div>Giá (VAT): {{vm.paying.priceWithVAT}}</div>
+        <div>Chi tiết giao dịch:</div>
         <div>
           {{vm.paying.chiTietGiaoDich}}
+        </div>
+        <div>
+          Khách hàng:
         </div>
         <div>
           {{vm.paying.user_id}}
         </div>
         <div>
+          Số hóa đơn:
+        </div>
+        <div>
           {{vm.paying.cartid}}
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_phuongThucThanhToan">Phuong Thuc Thanh Toan</label>
+            <label class="control-label" for="field_phuongThucThanhToan">Phương thức thanh toán</label>
             <input type="text" class="form-control" name="phuongThucThanhToan" id="field_phuongThucThanhToan"
                     ng-model="vm.paying.phuongThucThanhToan"
                     ng-maxlength="100" />
@@ -50,7 +57,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_hoten">Hoten</label>
+            <label class="control-label" for="field_hoten">Họ tên</label>
             <input type="text" class="form-control" name="hoten" id="field_hoten"
                     ng-model="vm.paying.hoten"
                     ng-maxlength="100" />
@@ -80,7 +87,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_diaChi">Dia Chi</label>
+            <label class="control-label" for="field_diaChi">Địa chỉ</label>
             <input type="text" class="form-control" name="diaChi" id="field_diaChi"
                     ng-model="vm.paying.diaChi"
                     ng-maxlength="150" />
@@ -146,10 +153,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Hủy</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Thanh toán</span>
         </button>
     </div>
 </form>

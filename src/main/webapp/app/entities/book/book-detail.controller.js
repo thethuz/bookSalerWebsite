@@ -28,7 +28,7 @@
             console.log(data);
           });
           // Book.query()
-          console.log(vm.number);
+          // console.log(vm.number);
           console.log(vm.book.id);
         }
         vm.subFromCart = function (){

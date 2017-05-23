@@ -27,7 +27,7 @@
           if(data!=undefined || data.length==1){
             vm.paying.price=data.price;
             vm.paying.priceWithVAT=data.priceWithVAT;
-            vm.paying.chiTietGiaoDich=data.chiTietGiaoDich;
+            vm.paying.chiTietGiaoDich=data.chiTietGiaoDich.replace("<br>"," -- ");
             vm.paying.cartid=data.cartid;
             vm.paying.user_id=data.user_id
             console.log(vm.paying);
