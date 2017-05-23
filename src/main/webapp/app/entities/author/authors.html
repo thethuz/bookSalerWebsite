@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <!-- <h2>Authors</h2> -->
     <!-- <jhi-alert></jhi-ale rt> -->
     <!-- <div class="container-fluid">
@@ -13,24 +13,31 @@
             </div>
         </div>
     </div> -->
-    <br/>
     <!-- <div class="table-responsive"> -->
-        <div class="jh-table table table-striped">
-
-            <div class="row">
-                <div class="col s10 offset-s1">
-                   <div class="row">
+    <div class="">
+        <hr>
+        <h2>Tac gia</h2>
+        <hr>
+    </div>
+        <div class="row">
                 <div ng-repeat="author in vm.authors track by author.id">
-                  <div style="background-color:green">
-                    <div><a ui-sref="author-detail({id:author.id})">id: {{author.id}}</a></div>
-                    <div>ten: {{author.tenTacgia}}</div>
-                    <div>{{author.introduce}}</div>
-                        <div>{{author.ngaySinh | date:'mediumDate'}}</div>
-                    <td class="text-right">
+                    <div class="col-md-3">
 
-                    </td>
-                  </div>
-                  
+                            <!-- <div><a ui-sref="author-detail({id:author.id})">id: {{author.id}}</a></div>
+                            <div>ten: {{author.tenTacgia}}</div>
+                            <div>{{author.introduce}}</div>
+                            <div>{{author.ngaySinh | date:'mediumDate'}}</div> -->
+
+
+                        <div>
+                          <div class="thumbnail">
+                            <img ng-src="http://kenh14cdn.com/thumb_w/600/67243c14c0/2015/09/25/150925starbeauty16-a8370.jpg" alt="...">
+                            <div class="caption" style="text-align: center">
+                              <p ><a style="text-decoration: none" ui-sref="author-detail({id:author.id})">{{author.tenTacgia}}</a></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
 
         </div>

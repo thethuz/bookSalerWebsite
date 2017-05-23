@@ -1,66 +1,53 @@
+<div class="container">
+    <div>
+        <h2><span><button type="submit"
+                ui-sref="{{ vm.previousState }}"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        </button></span><span><button type="button" ui-sref="author-detail.edit({id:vm.author.id})" class="btn btn-primary">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="hidden-xs hidden-sm"> Edit</span>
+        </button></span></h2>
+        <hr>
 
-<div>
-    <h2><span>Author</span> {{vm.author.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <!-- <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Ten Tacgia</span></dt>
-        <dd>
-            <span>{{vm.author.tenTacgia}}</span>
-        </dd>
-        <dt><span>Introduce</span></dt>
-        <dd>
-            <span>{{vm.author.introduce}}</span>
-        </dd>
-        <dt><span>Ngay Sinh</span></dt>
-        <dd>
-            <span>{{vm.author.ngaySinh | date:'mediumDate'}}</span>
-        </dd>
-    </dl> -->
+        <br>
+        <jhi-alert-error></jhi-alert-error>
+          <div >
+                  <div class="row">
 
-    <button type="submit"
-            ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-    </button>
+                           <img class = "img-responsive" style="margin: 0 auto" ng-src="http://kenh14cdn.com/thumb_w/600/67243c14c0/2015/09/25/150925starbeauty16-a8370.jpg" alt="...">
 
-    <button type="button" ui-sref="author-detail.edit({id:vm.author.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm"> Edit</span>
-    </button>
-</div>
 
-<div class="row">
+                  </div>
+                  <br>
+                  <div class="row">
+                       <div class="col-md-6 col-md-offset-2">
+                           <div  style="font-size: 20px">
+                              <p ><span style="color: #009688">
+                                 Ho ten :
+                              </span>
+                              {{vm.author.tenTacgia}}</p>
+                              <p ><span style="color: #009688">
+                                ngay sinh :
+                              </span>
+                              {{vm.author.ngaySinh}}</p>
+                              <!-- <p ><span > -->
+                                <!-- Noi o :
+                              </span>
+                              hollywood</p> -->
+                              <p><span style="color: #009688">
+                                gioi thieu ve tac gia :
+                              </span>
+                               {{vm.author.introduce}}
+                             </p>
 
-    <div class="col s10 offset-s1">
-        <div class="row">
-            <div class="col s12 center">
-                <img src="" class="responsive-img">
-            </div>
 
-        </div>
-        <div class="row">
-            <div class="col s10 offset-s1" style="font-size: 20px">
-               <p><span class="indigo-text text-darken-2">
-                  Họ tên đầy đủ :
-               </span>
-               {{vm.author.tenTacgia}}</p>
-               <p><span class="indigo-text text-darken-2">
-                 Ngày sinh :
-               </span>
-               {{vm.author.introduce}}</p>
-               <p><span class="indigo-text text-darken-2">
-                 <!-- Noi o :
-               </span>
-               hollywood</p> -->
-               <p><span class="indigo-text text-darken-2">
-                 Giới thiệu về tác giả
-               </span>
-                {{vm.author.introduce}}
-              </p>
-            <p><span class="indigo-text text-darken-2">Các tác phẩm : </span> </p>
-            <div ng-repeat="book in vm.books track by book.id">
-              <div class="col-md-3">
+                           </div>
+                       </div>
+                  </div>
+
+
+          </div>
                 <!-- <td><a ui-sref="book-detail({id:book.id})">{{book.id}}</a></td>
                 <div>{{book.tenSach}}</div>
                 <div>{{book.trangThaiConHang}}</div>
@@ -71,21 +58,31 @@
                 <div>{{book.giaCu}}</div>
                 <div>{{book.giaMoi}}</div> -->
 
-            <div>
-            <div class="thumbnail">
-            <img ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" alt="...">
-            <div class="caption" style="text-align: center">
+                <div ng-repeat="book in vm.books track by book.id">
+                  <div class="col-md-3">
+
+
+      <div>
+        <div class="thumbnail">
+          <img ng-src="http://chilinhkgcc.weebly.com/uploads/4/0/8/8/4088787/7496282.jpeg" alt="...">
+          <div class="caption" style="text-align: center">
             <p>{{book.tenSach}}</p>
             <p>{{book.tenTacgia}}</p>
             <p style="text-decoration: line-through;">Gia cu : {{book.giaCu}}</p>
             <p>Gia moi : {{book.giaMoi}}</p>
             <p><a href="#" class="btn btn-primary" role="button">mua</a><a type="button" href="#/book/{{book.id}}" class="btn btn-primary">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="hidden-xs hidden-sm"> Chi tiet</span>
+                <span class="glyphicon glyphicon-pencil"></span>
+                <span class="hidden-xs hidden-sm"> Chi tiet</span>
             </a></p>
-            </div>
-            </div>
-            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+                  </div>
+
+
+
             </div>
             </div>
         </div>
